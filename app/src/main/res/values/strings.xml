@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NeoSTORE</string>
+    <string name="Open">NeoSTORE</string>
+    <string name="Close">NeoSTORE</string>
+    <string name="Tables">Tables</string>
+    <string name="Chairs">Chairs</string>
+    <string name="Sofa">Sofas</string>
+    <string name="Myaccount">My Account</string>
+    <string name="MyOrder">My Orders</string>
+    <string name="cart_is_empty">Cart Is empty</string>
+    <string name="Cupboards">Cupboards</string>
+</resources>

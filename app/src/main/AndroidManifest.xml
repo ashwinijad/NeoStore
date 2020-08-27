@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.neostore">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="23" />
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name="com.example.neostore.Address.CustomApplication"
+        android:usesCleartextTraffic="true"
+        android:allowClearUserData="true"
+        android:allowClearUserDataOnFailedRestore="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Login.LoginActivity"
+
+            >
+
+        </activity>
+        <activity android:name=".RegisterActivity"
+        android:launchMode="singleTop"
+        android:parentActivityName=".Login.LoginActivity"
+        />
+        <activity android:name=".HomeActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER"
+                    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+            </intent-filter>
+        </activity>
+
+<activity android:name=".table.Tables"
+    android:launchMode="singleTop"
+    android:label="Table"
+    android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".sofas.Sofa_Home"
+            android:label="Sofas"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".chair.Chairs_Home"
+            android:label="Chairs"
+            android:launchMode="singleTop"
+            android:parentActivityName=".chair.Chairs_Home"/>
+        <activity android:name=".cupboards.Cupboards_Home"
+            android:label="Cupboards"
+            android:launchMode="singleTop"
+            android:parentActivityName=".cupboards.Cupboards_Home"/>
+        <activity android:name=".ForgotPassword"
+            android:launchMode="singleTop"/>
+        <activity android:name=".myaccount.MyAccount"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.neostore.HomeActivity" />
+        </activity>
+        <activity android:name=".ResetPassword.ResetPasswordActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".myaccount.MyAccount">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.neostore.myaccount.MyAccount" />
+        </activity>
+        <activity
+            android:name=".ProductDetails.Product_details"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+
+                <action android:name="android.intent.action.SEND" /> <!-- Send
+         action required to display activity in share list -->
+                <category android:name="android.intent.category.DEFAULT" /> <!--
+          Make activity default to launch -->
+                <!-- Mime type i.e. what can be shared with this activity only image and text -->
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/*" />
+            </intent-filter>
+
+        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <activity
+            android:name=".myaccount.EditProfile"
+            android:launchMode="singleTask"
+            android:parentActivityName=".myaccount.MyAccount">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.neostore.myaccount.MyAccount" />
+        </activity>
+        <activity android:name=".Cart.AddToCart"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"/>
+
+        </activity>
+
+        <activity android:name=".Address.AddAddressActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Address.AddressActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Order.OrderListActivity"
+            android:parentActivityName=".HomeActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.neostore.HomeActivity" />
+        </activity>
+        <activity android:name=".OrderDetail.OrderDetailList"
+            />
+
+    </application>
+
+</manifest>

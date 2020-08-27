@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/toolbartable"
+            android:background="@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/action_bar_title"
+                android:text="My Cart"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_below="@id/relative"
+        android:layout_above="@id/fl_footer"
+        android:layout_width="match_parent"
+        android:id="@+id/textviewempty"
+        android:text="empty"
+        android:layout_height="match_parent"></TextView>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relative"
+        android:fillViewport="true"
+        android:layout_above="@id/fl_footer"
+        android:background="@android:color/white">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@id/relative"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/fl_footer"
+        android:id="@+id/addtocartrecyleview"
+        tools:ignore="NotSibling" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addtocartrecyleview"
+        android:layout_above="@id/fl_footer"
+        android:text="ORDER NOW"
+        android:background="@drawable/mybuttonred"
+android:textColor="#FFFFFF"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:textStyle="bold"
+        android:id="@+id/placeorder"
+        tools:ignore="NotSibling" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cart_is_empty"
+            android:textSize="60dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"
+            android:id="@+id/emptytext">
+
+        </TextView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fl_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#80000000"
+        android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOTAL"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/total"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <TextView
+        app:layout_constraintLeft_toRightOf="@id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/totalamount"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/toolbartable"
+            android:background="@color/colorPrimary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/action_bar_title"
+                android:text="My Account"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative"
+        android:layout_marginTop="60px"
+        android:id="@+id/imageprofilelayout"
+        >
+<de.hdodenhof.circleimageview.CircleImageView
+    android:layout_width="400px"
+    android:layout_height="400px"
+    android:id="@+id/imageprofile"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:background="@mipmap/ic_launcher_round"
+    android:layout_gravity="center"
+
+    tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_below="@id/imageprofilelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60px"
+        android:background="@drawable/inputloginbox"
+        android:padding="8dp"
+        android:id="@+id/firstname"
+        android:textColor="#FFFFFF"
+        android:hint="First name"
+        android:textColorHint="#FFFFFF"
+        android:drawablePadding="10dp"
+
+        android:drawableLeft="@drawable/username_icon"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60px"
+        android:background="@drawable/inputloginbox"
+        android:padding="8dp"
+        android:layout_below="@id/firstname"
+        android:id="@+id/lastname"
+        android:textColor="#FFFFFF"
+        android:hint="Last name"
+        android:textColorHint="#FFFFFF"
+        android:drawablePadding="10dp"
+
+        android:drawableLeft="@drawable/username_icon"        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60px"
+        android:background="@drawable/inputloginbox"
+        android:padding="8dp"
+        android:id="@+id/emailuser"
+        android:textColor="#FFFFFF"
+        android:hint="Email"
+        android:textColorHint="#FFFFFF"
+        android:drawablePadding="10dp"
+android:layout_below="@id/lastname"
+        android:drawableLeft="@drawable/email_icon"        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60px"
+        android:background="@drawable/inputloginbox"
+        android:padding="8dp"
+        android:id="@+id/phone_no"
+        android:textColor="#FFFFFF"
+        android:hint="phone no"
+        android:layout_below="@id/emailuser"
+        android:textColorHint="#FFFFFF"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/ic_phone_android_black_24dp"        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60px"
+        android:background="@drawable/inputloginbox"
+        android:padding="8dp"
+        android:layout_below="@id/phone_no"
+        android:id="@+id/birthday"
+        android:textColor="#FFFFFF"
+        android:hint="Birthday"
+        android:textColorHint="#FFFFFF"
+        android:drawablePadding="10dp"
+
+
+        android:drawableLeft="@drawable/dob_icon"        />
+    <Button
+        android:id="@+id/editdetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/birthday"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60px"
+        android:background="@drawable/mybutton"
+        android:text="EDIT PROFILE"
+        android:textColor="#e91b1a"
+        android:textSize="51px"
+        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fl_footer"
+        android:layout_width="match_parent"
+        android:layout_height="157px"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+      >
+
+    <Button
+        android:id="@+id/resetpwd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+
+        android:background="#FFFFFF"
+        android:text="RESET PASSWORD"
+        android:textColor="#333333"
+        android:textSize="51px"
+        tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

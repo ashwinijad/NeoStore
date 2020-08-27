@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#bb0100">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:id="@+id/toolbar_title"
+        android:textStyle="bold"/>
+
+</androidx.appcompat.widget.Toolbar>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+
+        android:id="@+id/toolbar"
+        android:background="@drawable/ic_keyboard_arrow_left_black_24dp"
+        />
+</RelativeLayout>

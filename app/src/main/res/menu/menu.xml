@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <!--
+                Add menu items here
+                Menu items with icon and Title
+        -->
+        <item
+            android:id="@+id/MyCart"
+            android:icon="@drawable/ic_shopping_cart_black_24dp"
+            android:title="My Cart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:actionLayout="@layout/menu_counter"
+            />
+        <item
+            android:id="@+id/Tables"
+            android:icon="@drawable/tables_icon"
+            android:title="Tables" />
+        <item
+            android:id="@+id/Sofas"
+            android:icon="@drawable/sofa_icon"
+            android:title="Sofas" />
+        <item
+            android:id="@+id/Chairs"
+            android:icon="@drawable/chair_icon"
+            android:title="Chairs" />
+        <item
+            android:id="@+id/CupBoard"
+            android:icon="@drawable/cupboard_icon"
+            android:title="CupBoard" />
+        <item
+            android:id="@+id/myaccount"
+            android:icon="@drawable/username_icon"
+            android:title="My Account" />
+        <item
+            android:id="@+id/storelocator"
+            android:icon="@drawable/storelocator_icon"
+            android:title="Store Locator" />
+        <item
+            android:id="@+id/myorders"
+            android:icon="@drawable/myorders_icon"
+            android:title="My Orders" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/logout_icon"
+            android:title="Logout" />
+    </group>
+</menu>

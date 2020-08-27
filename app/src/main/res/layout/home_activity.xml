@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+
+        <RelativeLayout
+            android:id="@+id/holder"
+            android:layout_width="match_parent"
+            android:background="#000000"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:background="#ffffff"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toolbar"
+                    app:titleTextColor="#ffffff"
+                    app:title="@string/app_name"
+                    android:background="@color/colorPrimary"
+                    />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_below="@id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:id="@+id/viewpagerhome"/>
+
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginBottom="-3dp"
+                    android:gravity="bottom"
+                    android:padding="10dip"
+                    app:centered="true"
+                    app:fillColor="@color/colorPrimary"
+                    app:pageColor="#FFFFFF"
+                    app:snap="false" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/viewpagerhome"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/viewpagerhome"
+                        android:orientation="horizontal"
+                        android:id="@+id/linear1"
+                        android:weightSum="2"
+                        >
+                        <ImageView
+                            android:id="@+id/image1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/tableicon"/>
+                        <ImageView
+                            android:id="@+id/image2"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sofaicon"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/linear1"
+                        android:orientation="horizontal"
+
+                        android:weightSum="2"
+                        >
+                        <ImageView
+                            android:id="@+id/image3"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/chairsicon"
+                            tools:ignore="Suspicious0dp" />
+                        <ImageView
+                            android:id="@+id/image4"
+
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cupboardicon"
+                            tools:ignore="Suspicious0dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:layout_gravity="start"
+            app:itemTextColor="#ffffff"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/menu"
+app:itemIconTint="#ffffff"
+            app:itemBackground="@drawable/drawer_item_bg"
+            />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+    <!-- <nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+  >
+         <nl.psdcompany.duonavigationdrawer.views.DuoMenuView
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:tag="@string/tag_menu"
+             app:footer="@layout/view_footer"
+             app:header="@layout/view_header"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             />
+     </nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout>-->

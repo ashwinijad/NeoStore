@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:ndroid="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/swipe"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="100dp"
+
+        android:layout_height="match_parent"
+        android:weightSum="3">
+
+
+
+        <TextView
+            android:id="@+id/tvDelete"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0076a5"
+            android:gravity="center"
+            android:text="Delete"
+            android:textColor="#fff" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottom_wrapper1"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:background="@color/colorPrimary"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearlayoutaddressitem"
+    >
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radiobutton" />
+
+            <TextView
+                android:id="@+id/ftv_name"
+                android:text="laptop"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/fimg_pr"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:textColor="#000000"
+                ndroid:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+</LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</com.daimajia.swipe.SwipeLayout>

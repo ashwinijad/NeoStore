@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e91b1a">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <TextView
+            android:id="@+id/loginlogo"
+            android:layout_width="200sp"
+            android:layout_height="135px"
+            android:text="NeoSTORE"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="148px"
+        android:background="@drawable/inputloginbox"
+    android:padding="8dp"
+        android:layout_below="@id/constraint"
+        android:id="@+id/loginuser"
+        android:textColor="#FFFFFF"
+        android:hint="Username"
+        android:textColorHint="#FFFFFF"
+        android:drawablePadding="10dp"
+
+        android:drawableLeft="@drawable/username_icon"
+        />
+
+
+
+        />
+    <EditText
+        android:drawablePadding="10dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/inputloginbox"
+        android:padding="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/loginuser"
+        android:id="@+id/loginpassword"
+        android:hint="Password"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#ffffff"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/password_icon"
+
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_below="@id/loginpassword"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/mybutton"
+        android:text="LOGIN"
+        android:textColor="#e91b1a"
+
+        android:textSize="25sp"
+        android:id="@+id/loginbtn"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:id="@+id/forgotpassword"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerInParent="true"
+        android:textSize="54px"
+        android:layout_marginTop="65px"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?"
+        android:textColor="#FFFFFF"
+        android:layout_centerInParent="true"
+        android:textSize="27sp"
+        android:id="@+id/newaccount"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        />
+    <ImageView
+        android:layout_width="138px"
+        android:layout_height="138px"
+android:id="@+id/plusbutton"
+        android:background="@drawable/loginplus"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+      />
+
+</RelativeLayout>

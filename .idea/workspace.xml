@@ -23,11 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ProductDetails/Product_details.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ProductDetails/Product_details.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Tables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Tables.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/buynowdialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/buynowdialog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/product_details_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/product_details_activity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ratedialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ratedialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/address.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/address_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/address_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/addtocart_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/addtocart_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,10 +234,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="119" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598000314826" />
-    <state x="263" y="119" key="AndroidCreateResourceFileDialog" timestamp="1598855710177">
+    <state x="263" y="119" key="AndroidCreateResourceFileDialog" timestamp="1598861973115">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="119" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1598855710177" />
+    <state x="263" y="119" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1598861973115" />
     <state x="541" y="177" key="AndroidCreateXmlResourceDialog" timestamp="1597991309444">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -298,6 +298,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594624629640" />
+    <state x="294" y="97" key="Vcs.Push.Dialog.v2" timestamp="1598862565995">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="294" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598862565995" />
     <state width="673" height="344" key="XDebugger.FullValuePopup" timestamp="1598004596408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

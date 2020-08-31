@@ -97,14 +97,10 @@ import java.util.*
             intent.putExtra("item1", fl.address)
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent)
 
-            Toast.makeText(
-                context,
-                "selected offer is " ,
-                Toast.LENGTH_LONG
-            ).show()
+
         })
         if (index === position) {
-            viewHolder.linearLayout.setBackgroundColor(Color.parseColor("#FF4081"))
+            viewHolder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
         } else {
             viewHolder.linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
         }

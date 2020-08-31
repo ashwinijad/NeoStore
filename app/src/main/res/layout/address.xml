@@ -17,11 +17,12 @@
 
         </androidx.appcompat.widget.Toolbar>
         <ImageView
-
-            android:src="@mipmap/ic_launcher"
+android:layout_marginRight="20dp"
+            android:src="@drawable/add_icon"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
             android:text="Tables"
             android:textSize="30dp"
             android:textColor="#FFFFFF"
@@ -46,7 +47,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/addtocartrecyleview"
         android:layout_above="@id/fl_footer"
-        android:text="ORDER"
+        android:text="PLACE ORDER"
+        android:background="@drawable/mybuttonred"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:id="@+id/ordernow"
         />
     </LinearLayout>

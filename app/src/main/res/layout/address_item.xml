@@ -46,7 +46,9 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radiobutton" />
+        android:id="@+id/radiobutton"
+        android:layout_gravity="center"
+        android:buttonTint="#8E8E8E"/>
 
             <TextView
                 android:id="@+id/ftv_name"

@@ -108,7 +108,6 @@ android:id="@+id/hello"
         android:layout_height="30dp"
         android:id="@+id/spinner"
         android:paddingLeft="30dp"
-
         android:spinnerMode="dropdown"
         />
         </RelativeLayout>

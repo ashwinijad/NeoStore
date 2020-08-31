@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -233,14 +234,14 @@ val descript:TextView=findViewById(R.id.descript)
                                             }
                                         }
                                     })
-                                Toast.makeText(
-                                    this@Product_details,
-                                    "" + rateValue,
-                                    Toast.LENGTH_SHORT
-                                ).show()
+
                             }
                         })
                         dialog.show()
+                      //  dialog.getWindow()?.setLayout(1000, 1500);
+                        dialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
+
                     }
                     buynow.setOnClickListener {
                         val mBuild: AlertDialog.Builder = AlertDialog.Builder(this@Product_details)
@@ -345,6 +346,9 @@ val descript:TextView=findViewById(R.id.descript)
                             }
                         })
                         dialog.show()
+                     //   dialog.getWindow()?.setLayout(1000, 1700);
+                        dialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+
                     }
 
                 }

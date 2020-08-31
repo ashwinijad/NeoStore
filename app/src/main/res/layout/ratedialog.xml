@@ -5,18 +5,25 @@
     android:layout_height="wrap_content"
     android:id="@+id/rate_parent"
     android:gravity="center"
+    android:background="@drawable/dialog_bg"
+
     android:layout_gravity="center"
     android:weightSum="10">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:id="@+id/titleimage">
-
-</TextView>
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="75px"
+
+        android:textColor="#2c2b2b"
+        android:id="@+id/titleimage">
+    </TextView>
+
+    <ImageView
+        android:layout_marginTop="100px"
+        android:layout_width="772px"
+        android:layout_height="534px"
         android:id="@+id/imagerate">
 
     </ImageView>
@@ -24,22 +31,24 @@
         android:layout_marginBottom="30dp"
         android:layout_weight="5"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="10dp"
         android:id="@+id/ratingBaruser"
         android:numStars="5"
+        android:layout_marginTop="66px"
         android:stepSize="0.5"
         android:layout_above="@+id/btnSubRating"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_weight="5"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="rateSubmit"
+        android:layout_width="595px"
+        android:layout_height="142px"
+        android:text="SUBMIT"
+        android:layout_marginTop="66px"
         android:id="@+id/btnSubRating"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/mybuttonred"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

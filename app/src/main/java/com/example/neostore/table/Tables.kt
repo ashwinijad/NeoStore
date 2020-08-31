@@ -1,5 +1,7 @@
 package com.example.neostore.table
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.text.Html
 import android.view.Menu
@@ -59,7 +61,7 @@ class Tables : AppCompatActivity() {
                         response: Response<Table_response>
                     ) {
 
-                        if (response?.body() != null) {
+                        if (response.body() != null) {
 
                             recyclerAdapter.setMovieListItems((response.body()?.data as MutableList<Tabledata>?)!!)
                         }
@@ -84,9 +86,15 @@ class Tables : AppCompatActivity() {
             searchView.findViewById<View>(R.id.search_src_text) as EditText
         searchEditText.setTextColor(resources.getColor(R.color.white))
         searchEditText.setHintTextColor(resources.getColor(R.color.white))
+      //  searchEditText.setPadding(0,0,0,-40)
+       // searchEditText.setBackgroundTintList(ContextCompat.getColorStateList(this@Tables, R.color.white));
+        val searchplate =
+            searchView.findViewById(R.id.search_plate) as View
+        searchplate.background.setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY)
         val searchClose: ImageView =
             searchView.findViewById(R.id.search_close_btn)
         searchClose.setImageResource(R.drawable.remove_button)
+      //  searchClose.setPadding(0,0,0,-40)
         search(searchView)
         return true
     }

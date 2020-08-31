@@ -1,37 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="300dp"
-    android:layout_height="450dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:id="@+id/rate_parent"
+android:background="@drawable/dialog_bg"
     android:gravity="center"
     android:layout_gravity="center"
     android:weightSum="10">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="75px"
+
+        android:textColor="#2c2b2b"
         android:id="@+id/titleimage2">
 
     </TextView>
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_marginTop="100px"
+        android:layout_width="772px"
+        android:layout_height="534px"
+
         android:id="@+id/imagebuy">
 
     </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:id="@+id/enterquantity"
+        android:layout_marginTop="100px"
+        android:text="Enter Qty">
+
+    </TextView>
 <EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="336px"
+    android:layout_height="129px"
     android:id="@+id/editbuy"
+    android:gravity="center"
+    android:layout_marginTop="66px"
+    android:background="@drawable/buynowedt"
     android:inputType="number"></EditText>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BUY NOW"
+        android:layout_width="595px"
+        android:layout_height="142px"
+        android:text="SUBMIT"
+        android:layout_marginTop="66px"
         android:id="@+id/btnbuynow"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal" />
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/mybuttonred"
+        android:layout_gravity="center_horizontal"
+        />
 
 </LinearLayout>

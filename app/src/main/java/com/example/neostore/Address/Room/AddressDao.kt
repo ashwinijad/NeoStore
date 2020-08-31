@@ -38,7 +38,8 @@ interface AddressDao {
      fun delete(address: Address)
   // @Query("DELETE FROM address WHERE id=:id")
   //  fun deleteAddress(id: Int): Int
-
+@Query("DELETE from address")
+fun delete()
 
 }
 

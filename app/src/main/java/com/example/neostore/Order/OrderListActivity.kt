@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neostore.Cart.DividerItemDecorator
@@ -69,6 +70,12 @@ Log.e("checkresponsee",response.body().toString())
         val adapter = Order_Adapter(this@OrderListActivity,dataList)
         recyclerView.adapter=adapter
         recyclerView.setHasFixedSize(true)
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                recyclerView.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
       adapter.notifyDataSetChanged()
 

@@ -22,6 +22,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.neostore.Address.AddressAdapter
+import com.example.neostore.Address.CustomApplication
 import com.example.neostore.Cart.AddToCart
 import com.example.neostore.Cart.CartResponse
 import com.example.neostore.Cart.DataCart
@@ -53,6 +55,7 @@ class HomeActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     private val END_SCALE = 0.7f
     var Tablelist : List<Data> = listOf()
     private lateinit var counterView: TextView
+    var adapter: AddressAdapter? =null
 
     private val IMAGES =
         arrayOf<Int>(
@@ -473,6 +476,9 @@ navigationView!!.setNavigationItemSelectedListener(this)
         return true;
     }
     private fun logout(){
+        val application = application as CustomApplication
+
+        application.database.AddressDao().delete()
         SharedPrefManager.getInstance(application).clear()
         val intent = Intent(applicationContext, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

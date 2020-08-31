@@ -17,7 +17,9 @@ class CustomApplication: Application() {
         this.database = Room.databaseBuilder<Database>(
             applicationContext,
             Database::class.java, "database"
-        ).allowMainThreadQueries().build()
+        ).allowMainThreadQueries()
+            //    .fallbackToDestructiveMigration()
+            .build()
 
         addressDao = database.AddressDao()
     //   this.database = database

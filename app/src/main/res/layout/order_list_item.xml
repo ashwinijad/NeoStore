@@ -10,10 +10,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="60px"
+    android:paddingLeft="10dp"
     android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#1c1c1c"
         android:layout_height="wrap_content"
         android:text="ORDER ID : "
         android:textSize="50px"/>
@@ -21,20 +22,42 @@
         android:id="@+id/ordertitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#1c1c1c"
         android:textSize="50px"
    />
 </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30px"
+        android:orientation="horizontal"
+        android:layout_marginTop="-10dp"
+        android:paddingRight="30dp"
+        android:layout_gravity="end">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs."
+        android:textColor="#333333"
 
+        android:textSize="60px"/>
+    <TextView
+        android:id="@+id/ordercost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#333333"
+        android:textSize="60px"
+        tools:ignore="RtlCompat" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:layout_marginTop="-10dp"
+        android:paddingLeft="10dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#4f4f4f"
 
             android:text="ORDERED DATE : "
             android:textSize="35px"/>
@@ -43,25 +66,10 @@
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#4f4f4f"
             android:textSize="35px"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rs."
-            android:paddingLeft="60dp"
-            android:textColor="#000000"
 
-            android:textSize="60px"/>
-        <TextView
-            android:id="@+id/ordercost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#000000"
-android:textSize="60px"
-            tools:ignore="RtlCompat" />
     </LinearLayout>
 
 </LinearLayout>

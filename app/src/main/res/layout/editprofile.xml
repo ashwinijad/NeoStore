@@ -13,7 +13,6 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:id="@+id/toolbartable"
             android:background="@color/colorPrimary">
             <TextView
@@ -29,7 +28,7 @@
         </androidx.appcompat.widget.Toolbar>
 
     </RelativeLayout>
-    <de.hdodenhof.circleimageview.CircleImageView
+   <!-- <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilepic"
         android:layout_width="400px"
 android:layout_marginTop="60px"
@@ -40,6 +39,37 @@ android:layout_marginTop="60px"
         android:layout_centerHorizontal="true"
 
         android:background="@mipmap/ic_launcher_round"/>
+        -->
+
+    <RelativeLayout
+                android:layout_width="400px"
+android:layout_marginTop="60px"
+        android:layout_height="400px"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/profilepic"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/img_plus"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignBottom="@id/profilepic"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/addicon_red"
+            android:background="@android:color/transparent"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="1" />
+    </RelativeLayout>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

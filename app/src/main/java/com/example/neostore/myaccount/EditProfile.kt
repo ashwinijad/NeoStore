@@ -1,10 +1,10 @@
 package com.example.neostore.myaccount
 
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
-import android.content.ActivityNotFoundException
+import android.app.ProgressDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -24,6 +24,8 @@ import com.example.neostore.Login.LoginResponse
 import com.example.neostore.R
 import com.example.neostore.RetrofitClient
 import com.example.neostore.SharedPrefManager
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.editprofile.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -43,6 +45,7 @@ class EditProfile:AppCompatActivity (){
     var bitmap: Bitmap? = null
     var profile:ImageView?=null
     var uri: Uri? = null
+    var progressDialog: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -140,13 +143,21 @@ class EditProfile:AppCompatActivity (){
             startActivityForResult(intent, IMAGE)*/
 
             */
-            val GalIntent = Intent(Intent.ACTION_PICK,
+            /* val GalIntent = Intent(Intent.ACTION_PICK,
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
             startActivityForResult(Intent.createChooser(GalIntent, "Select Image From Gallery"), 2)
+
+            */
+            checkAndroidVersion()
+
         })
         editsubmit.setOnClickListener {
-
+            Toast.makeText(applicationContext,"this might take some time",Toast.LENGTH_LONG).show()
+           progressDialog = ProgressDialog(this@EditProfile)
+            progressDialog!!.setMessage("Loading....")
+            progressDialog!!.show()
+            progressDialog!!.setCanceledOnTouchOutside(false)
             val first_name = firstname.text.toString().trim()
             val last_name = lastname.text.toString().trim()
 
@@ -202,6 +213,7 @@ class EditProfile:AppCompatActivity (){
                         var res = response
                         Log.d("response check ", "" + response.body()?.status.toString())
                         if (res.body()?.status == 200) {
+                            progressDialog?.dismiss()
                             Toast.makeText(
                                 applicationContext,
                                 res.body()?.message,
@@ -238,7 +250,7 @@ class EditProfile:AppCompatActivity (){
         return android.util.Base64.encodeToString(imgByte, android.util.Base64.NO_WRAP)
     }
 
-    override fun onActivityResult(
+  /*  override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
         data: Intent?
@@ -270,22 +282,28 @@ class EditProfile:AppCompatActivity (){
             }
         }
 
-    }
-    fun ImageCropFunction() {
-        try {
-           val CropIntent = Intent("com.android.camera.action.CROP")
-            CropIntent.setDataAndType(uri, "image/*")
-            CropIntent.putExtra("crop", "true")
-            CropIntent.putExtra("outputX", 180)
-            CropIntent.putExtra("outputY", 180)
-            CropIntent.putExtra("aspectX", 3)
-            CropIntent.putExtra("aspectY", 4)
-            CropIntent.putExtra("scaleUpIfNeeded", true)
-            CropIntent.putExtra("return-data", true)
-            startActivityForResult(CropIntent, 1)
-        } catch (e: ActivityNotFoundException) {
-        }
-    }
+    }*/
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+      //RESULT FROM SELECTED IMAGE
+      super.onActivityResult(requestCode, resultCode, data)
+      if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == RESULT_OK) {
+          val imageUri = CropImage.getPickImageResultUri(this, data)
+          cropRequest(imageUri)
+      }
+      //RESULT FROM CROPING ACTIVITY
+      if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+          val result = CropImage.getActivityResult(data)
+          if (resultCode == RESULT_OK) {
+              try {
+                   bitmap = MediaStore.Images.Media.getBitmap(contentResolver, result.uri)
+                  profile?.setImageBitmap(bitmap)
+              } catch (e: IOException) {
+                  e.printStackTrace()
+              }
+          }
+      }
+  }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
@@ -294,6 +312,34 @@ class EditProfile:AppCompatActivity (){
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+    fun checkAndroidVersion() {
+
+            pickImage()
+
+    }
+    fun pickImage() {
+        CropImage.startPickImageActivity(this@EditProfile)
+    }
+
+    private fun cropRequest(imageUri: Uri) {
+        CropImage.activity(imageUri)
+            .setGuidelines(CropImageView.Guidelines.ON_TOUCH)
+            .setAspectRatio(1, 1)
+            .start(this@EditProfile)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 555 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            pickImage()
+        } else {
+            checkAndroidVersion()
         }
     }
 }

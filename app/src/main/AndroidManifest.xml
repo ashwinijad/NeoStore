@@ -105,7 +105,9 @@
                 android:value="com.example.neostore.myaccount.MyAccount" />
         </activity>
         <activity android:name=".Cart.AddToCart"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".HomeActivity"
+            android:launchMode="singleTop"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity"/>
@@ -131,6 +133,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.neostore.OrderDetail.OrderDetailList" />
         </activity>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/AppTheme1"/>
 
     </application>
 

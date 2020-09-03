@@ -3,6 +3,7 @@ package com.example.neostore.myaccount
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -41,6 +42,8 @@ class EditProfile:AppCompatActivity (){
     private val IMAGE = 100
     var bitmap: Bitmap? = null
     var profile:ImageView?=null
+    var uri: Uri? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.editprofile)
@@ -99,29 +102,28 @@ class EditProfile:AppCompatActivity (){
                 ) {
                     var res = response
 
-                    if (res.body()?.status==200) {
+                    if (res.body()?.status == 200) {
                         //  val retro: List<Myaccount_data> = response.body().getData()
 
                         val retro: Myaccount_data = res.body()!!.data
-                        val retro1 : User_data =retro.user_data
+                        val retro1: User_data = retro.user_data
                         Glide.with(applicationContext).load(retro1.profile_pic)
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .placeholder(R.drawable.ic_launcher_foreground)
                             .into(profile!!)
                         //image.setImageResource(retro1.profile_pic)
-                    }
-                    else{
+                    } else {
                         try {
                             val jObjError =
                                 JSONObject(response.errorBody()!!.string())
                             Toast.makeText(
                                 applicationContext,
-                             jObjError.getString("user_msg"),
+                                jObjError.getString("user_msg"),
                                 Toast.LENGTH_LONG
                             ).show()
                         } catch (e: Exception) {
                             Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
-                            Log.e("errorrr",e.message)
+                            Log.e("errorrr", e.message)
                         }
                     }
                 }
@@ -132,10 +134,16 @@ class EditProfile:AppCompatActivity (){
 
         profile?.setOnClickListener(View.OnClickListener {
 
-            val intent = Intent()
+            /* val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(intent, IMAGE)
+            startActivityForResult(intent, IMAGE)*/
+
+            */
+            val GalIntent = Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+            startActivityForResult(Intent.createChooser(GalIntent, "Select Image From Gallery"), 2)
         })
         editsubmit.setOnClickListener {
 
@@ -150,8 +158,6 @@ class EditProfile:AppCompatActivity (){
                 SharedPrefManager.getInstance(
                     applicationContext
                 ).user.access_token.toString()
-        //    val description: RequestBody =
-              //  createPartFromString("hello, this is description speaking")
             val first_name1 =
                 RequestBody.create(MediaType.parse("text/plain"), first_name)
             val last_name1 =
@@ -183,38 +189,38 @@ class EditProfile:AppCompatActivity (){
 
             val body: MultipartBody.Part =
                 MultipartBody.Part.createFormData("image", "image.jpg", requestFile)
-            RetrofitClient.instance.useredit(token,map)
+            RetrofitClient.instance.useredit(token, map)
                 .enqueue(object : Callback<LoginResponse> {
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                         Log.d("res", "" + t)
                     }
+
                     override fun onResponse(
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
                         var res = response
                         Log.d("response check ", "" + response.body()?.status.toString())
-                        if (res.body()?.status==200) {
+                        if (res.body()?.status == 200) {
                             Toast.makeText(
                                 applicationContext,
                                 res.body()?.message,
                                 Toast.LENGTH_LONG
                             ).show()
-                            Log.d("kjsfgxhufb",response.body()?.status.toString())
-                        }
-                        else
-                        {
+                            Log.d("kjsfgxhufb", response.body()?.status.toString())
+                        } else {
                             try {
                                 val jObjError =
                                     JSONObject(response.errorBody()!!.string())
                                 Toast.makeText(
                                     applicationContext,
-                                    jObjError.getString("message")+jObjError.getString("user_msg"),
+                                    jObjError.getString("message") + jObjError.getString("user_msg"),
                                     Toast.LENGTH_LONG
                                 ).show()
                             } catch (e: Exception) {
-                                Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
-                                Log.e("errorrr",e.message)
+                                Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG)
+                                    .show()
+                                Log.e("errorrr", e.message)
                             }
                         }
 
@@ -229,7 +235,7 @@ class EditProfile:AppCompatActivity (){
 
         val imgByte: ByteArray = byteArrayOutputStream.toByteArray()
 
-        return android.util.Base64.encodeToString(imgByte, android.util.Base64.NO_WRAP )
+        return android.util.Base64.encodeToString(imgByte, android.util.Base64.NO_WRAP)
     }
 
     override fun onActivityResult(
@@ -238,7 +244,7 @@ class EditProfile:AppCompatActivity (){
         data: Intent?
     ) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+       /* if (requestCode == IMAGE && resultCode == Activity.RESULT_OK && data != null) {
             val path: Uri? = data.data
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(contentResolver, path)
@@ -246,6 +252,38 @@ class EditProfile:AppCompatActivity (){
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+        }
+
+        */
+        if (requestCode === 0 && resultCode === RESULT_OK) {
+            ImageCropFunction()
+        } else if (requestCode === 2) {
+            if (data != null) {
+                uri = data.data
+                ImageCropFunction()
+            }
+        } else if (requestCode === 1) {
+            if (data != null) {
+                val bundle = data.extras
+                 bitmap = bundle!!.getParcelable<Bitmap>("data")
+                profile?.setImageBitmap(bitmap)
+            }
+        }
+
+    }
+    fun ImageCropFunction() {
+        try {
+           val CropIntent = Intent("com.android.camera.action.CROP")
+            CropIntent.setDataAndType(uri, "image/*")
+            CropIntent.putExtra("crop", "true")
+            CropIntent.putExtra("outputX", 180)
+            CropIntent.putExtra("outputY", 180)
+            CropIntent.putExtra("aspectX", 3)
+            CropIntent.putExtra("aspectY", 4)
+            CropIntent.putExtra("scaleUpIfNeeded", true)
+            CropIntent.putExtra("return-data", true)
+            startActivityForResult(CropIntent, 1)
+        } catch (e: ActivityNotFoundException) {
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

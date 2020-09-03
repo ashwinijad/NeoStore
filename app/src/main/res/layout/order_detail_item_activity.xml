@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:collapseIcon="@drawable/ic_arrow_back_black_24dp"
+
+            android:id="@+id/toolbartable"
+            android:background="@color/colorPrimaryDark">
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </RelativeLayout>
+>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/nest"
+    android:scrollbars="vertical"
+    android:layout_below="@id/relative">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:nestedScrollingEnabled="false"
+          android:id="@+id/recyleview"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/linearlayoutorder"
+android:layout_below="@id/recyleview"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:background="@drawable/border"
+        android:backgroundTintMode="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOTAL"
+            android:layout_gravity="center"
+            android:layout_weight="1"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/totalidcost"
+            android:layout_gravity="right|center"
+            android:textAlignment="textEnd"
+            tools:ignore="RtlCompat"></TextView>
+    </LinearLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+</RelativeLayout>

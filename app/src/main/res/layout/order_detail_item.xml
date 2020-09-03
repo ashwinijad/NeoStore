@@ -35,9 +35,8 @@
                 app:layout_constraintLeft_toRightOf="@id/image"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
-
+android:textStyle="italic"
                 android:paddingLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -50,9 +49,10 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="wrap_content"
                     android:text="QTY :"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="20dp"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="40px"
+                    android:layout_marginTop="50px"
                     tools:ignore="MissingConstraints" />
                 <TextView
                     android:id="@+id/quantityno"
@@ -60,19 +60,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="40px"
+                    android:layout_marginTop="50px"
+
                     tools:ignore="MissingConstraints" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rs."
+                    android:layout_marginTop="50px"
+                    android:textSize="40px"
+
                     android:paddingLeft="80dp"/>
                 <TextView
                     android:id="@+id/cost"
+                    android:layout_marginTop="50px"
+
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="40px"
                     tools:ignore="MissingConstraints" />
             </LinearLayout>
 

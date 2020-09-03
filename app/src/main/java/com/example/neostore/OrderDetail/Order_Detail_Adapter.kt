@@ -37,7 +37,7 @@ class Order_Detail_Adapter(var context: Context, var Tablelist: List<Order_Detai
         holder.productname.text = Tablelist.get(position).prod_name.toString()
         Glide.with(context).load(Tablelist.get(position).prod_image)
             .into(holder.productimage)
-        holder.productcategory.text=Tablelist.get(position).prod_cat_name
+        holder.productcategory.text="("+Tablelist.get(position).prod_cat_name+")"
         holder.productcost.text=Tablelist.get(position).total.toString()
         holder.quantity.text=Tablelist.get(position).quantity.toString()
         Log.e("checkkkkk",Tablelist.get(position).id.toString())

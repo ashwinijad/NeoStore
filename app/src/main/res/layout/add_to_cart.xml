@@ -82,40 +82,42 @@ android:textColor="#FFFFFF"
         </TextView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <RelativeLayout
         android:id="@+id/fl_footer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#80000000"
         android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TOTAL"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/total"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="#ffffff"
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="TOTAL"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
 
-        tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints">
 
-    </TextView>
-    <TextView
-        app:layout_constraintLeft_toRightOf="@id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:id="@+id/totalamount"
-        android:layout_alignParentBottom="true"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"
-        tools:ignore="MissingConstraints">
+        </TextView>
 
-    </TextView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/totalamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/total"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+    </RelativeLayout>
 </RelativeLayout>

@@ -124,7 +124,13 @@
                 android:value="com.example.neostore.HomeActivity" />
         </activity>
         <activity android:name=".OrderDetail.OrderDetailList"
-            />
+            android:parentActivityName=".Order.OrderListActivity"
+
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.neostore.OrderDetail.OrderDetailList" />
+        </activity>
 
     </application>
 

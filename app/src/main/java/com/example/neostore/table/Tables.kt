@@ -3,71 +3,59 @@ package com.example.neostore.table
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.NavUtils
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.neostore.BaseClassActivity
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
 import kotlinx.android.synthetic.main.table_activity.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
-class Tables : AppCompatActivity() {
+class Tables : BaseClassActivity() {
     lateinit var recyclerView: RecyclerView
-    lateinit var recyclerAdapter: Table_Adapter
+    lateinit var recyclerAdapter: ProductAdapter
+  //  companion object{    var favoriteDatabase: favDB? = null
+   // }
      var Tablelist : MutableList<Tabledata> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.table_activity)
         var mActionBarToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbartable);
         setSupportActionBar(mActionBarToolbar);
-        if (getSupportActionBar() != null){
-            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
-            getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_keyboard_arrow_left_black_24dp);
-            getSupportActionBar()?.setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.Tables) + "</font>")));
-        }
+        setScreenTitle("Tables")
+
         recyclerView = findViewById(R.id.recyleview)
-        recyclerAdapter = Table_Adapter(this)
-        recyleview.layoutManager = LinearLayoutManager(this)
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                recyclerView.context,
-                DividerItemDecoration.VERTICAL
-            )
-        )
-        recyleview.adapter = recyclerAdapter
-            RetrofitClient.instancetable.getAllPhotos(product_category_id = "1", value = 1).enqueue(
-                object : Callback<Table_response> {
-                    override fun onFailure(call: Call<Table_response>, t: Throwable) {
-                        Toast.makeText(applicationContext, "falied", Toast.LENGTH_LONG).show()
-                    }
 
-                    override fun onResponse(
-                        call: Call<Table_response>,
-                        response: Response<Table_response>
-                    ) {
+        val model = ViewModelProvider(this)[ProductViewModel::class.java]
 
-                        if (response.body() != null) {
+        model.Tabless?.observe(this,object :Observer<Table_response>{
+            override fun onChanged(t: Table_response?) {
 
-                            recyclerAdapter.setMovieListItems((response.body()?.data as MutableList<Tabledata>?)!!)
-                        }
-                    }
+                recyclerAdapter = ProductAdapter(applicationContext, Tablelist)
+                recyleview.layoutManager = LinearLayoutManager(applicationContext)
+                recyclerView.addItemDecoration(
+                    DividerItemDecoration(
+                        recyclerView.context,
+                        DividerItemDecoration.VERTICAL
+                    )
+                )
+                recyclerAdapter.setMovieListItems(t?.data as MutableList<Tabledata>)
 
-                })
+                recyleview.adapter = recyclerAdapter
+            }
+
+        })
+
         }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -108,7 +96,7 @@ class Tables : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                recyclerAdapter.getFilter().filter(newText)
+                recyclerAdapter.filter.filter(newText)
                 return true
             }
         })

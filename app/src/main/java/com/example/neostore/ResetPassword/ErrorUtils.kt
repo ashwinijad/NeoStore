@@ -1,6 +1,6 @@
 package com.example.neostore.ResetPassword
 
-import com.example.neostore.RetrofitClient
+import com.example.neostore.ClientApi.RetrofitClient
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.Response

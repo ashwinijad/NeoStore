@@ -1,30 +1,32 @@
 package com.example.neostore.OrderDetail
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.neostore.Cart.DividerItemDecorator
+import com.example.neostore.BaseClassActivity
+import com.example.neostore.ClientApi.RetrofitClient
+import com.example.neostore.Order.OrderListActivity
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
 import com.example.neostore.SharedPrefManager
-import kotlinx.android.synthetic.main.add_to_cart.*
 import kotlinx.android.synthetic.main.order_detail_item_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class OrderDetailList:AppCompatActivity() {
+class OrderDetailList:BaseClassActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setExitTransition(null)
+        getWindow().setEnterTransition(null)
         setContentView(R.layout.order_detail_item_activity)
         var mActionBarToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbartable);
         setSupportActionBar(mActionBarToolbar);
@@ -33,15 +35,12 @@ class OrderDetailList:AppCompatActivity() {
             getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
             getSupportActionBar()?.setDisplayShowHomeEnabled(true);
             getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_keyboard_arrow_left_black_24dp);
-
-
-
         }
-        val intent1: Intent =getIntent()
+        val intent1: Intent = getIntent()
 
         val id:String =intent1.getStringExtra("id")
         supportActionBar!!.title = id
-        getSupportActionBar()?.setTitle((Html.fromHtml("<font color=\"#FFFFFF\"" +"<b>"+"ORDER ID:"+id + "</font>")));
+        getSupportActionBar()?.setTitle((Html.fromHtml("<font color=\"#FFFFFF\"" + "<b>" + "ORDER ID:" + id + "</font>")));
 
 
 
@@ -51,7 +50,7 @@ class OrderDetailList:AppCompatActivity() {
             SharedPrefManager.getInstance(
                 applicationContext
             ).user.access_token.toString()
-        RetrofitClient.instanceorder.fetchorderdetail(token, id).enqueue(object :
+        RetrofitClient.instance.fetchorderdetail(token, id).enqueue(object :
             Callback<Order_Detail_Response_Base> {
             override fun onFailure(call: Call<Order_Detail_Response_Base>, t: Throwable) {
                 Toast.makeText(applicationContext, "falied", Toast.LENGTH_LONG).show()
@@ -68,7 +67,6 @@ class OrderDetailList:AppCompatActivity() {
                     Log.e("checkresponsee", response.body().toString())
                     val retro: List<Order_Detail_Res> = response.body()!!.data.order_details
                     generateDataList(retro)
-                    totalidcost.setText(response.body()!!.data.cost.toString())
                 }
             }
 
@@ -93,20 +91,16 @@ class OrderDetailList:AppCompatActivity() {
 
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                NavUtils.navigateUpFromSameTask(this)
+        // handle arrow click here
+        if (item.itemId == android.R.id.home) {
 
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+            finish() // close this activity and return to preview activity (if there is any)
+            overridePendingTransition(0, 0)
+
         }
+        return super.onOptionsItemSelected(item)
     }
-    override fun onBackPressed() {
-        // val intent = Intent(this, HomeActivity::class.java)
-        //startActivityForResult(intent, 2)
-        super.onBackPressed()
-    }
+
 }
 
 

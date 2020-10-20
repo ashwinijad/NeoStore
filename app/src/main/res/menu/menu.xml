@@ -36,6 +36,16 @@
             android:id="@+id/storelocator"
             android:icon="@drawable/storelocator_icon"
             android:title="Store Locator" />
+      <!--  <item
+            android:id="@+id/favourites"
+            android:icon="@drawable/storelocator_icon"
+            android:title="Favourites" />
+
+            -->
+        <item
+            android:id="@+id/favouriteproduct"
+            android:icon="@drawable/storelocator_icon"
+            android:title="Favourites Product" />
         <item
             android:id="@+id/myorders"
             android:icon="@drawable/myorders_icon"

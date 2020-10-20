@@ -6,23 +6,19 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neostore.Address.AddressActivity
+import com.example.neostore.BaseClassActivity
 import com.example.neostore.HomeActivity
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
-import com.example.neostore.SharedPrefManager
 import kotlinx.android.synthetic.main.add_to_cart.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
-class AddToCart:AppCompatActivity(){
+class AddToCart:BaseClassActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_to_cart)
@@ -31,51 +27,29 @@ class AddToCart:AppCompatActivity(){
         var mActionBarToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbartable);
         setSupportActionBar(mActionBarToolbar);
         // add back arrow to toolbar
-        if (getSupportActionBar() != null){
-            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
-            getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_keyboard_arrow_left_black_24dp);
-            getSupportActionBar()?.setDisplayShowTitleEnabled(false);
+      setEnabledTitle()
 
-            //supportActionBar?.setTitle("Tables")
-            //    getSupportActionBar()?.setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.Myaccount) + "</font>")));
-
-        }
         mActionBarToolbar.setNavigationOnClickListener(View.OnClickListener {
             onBackPressed() })
-val totalamount:TextView=findViewById(R.id.totalamount)
         placeorder.setOnClickListener {
             val intent:Intent=Intent(applicationContext, AddressActivity::class.java)
             startActivity(intent)
         }
-        val token: String =
-            SharedPrefManager.getInstance(
-                applicationContext
-            ).user.access_token.toString()
-        RetrofitClient.instancecart.listcart(token).enqueue(object :
-            Callback<CartResponse> {
-            override fun onFailure(call: Call<CartResponse>, t: Throwable) {
-                Toast.makeText(applicationContext, "falied", Toast.LENGTH_LONG).show()
-            }
-
-            override fun onResponse(
-                call: Call<CartResponse>,
-                response: Response<CartResponse>
-            ) {
-
-                val res = response
-                if (response.isSuccessful) {
-
-                    val retro: List<DataCart> = response.body()!!.data
-                    totalamount.setText(response.body()?.total.toString())
-
-                    generateDataList(retro?.toMutableList())
-
-                }
-            }
-
-        })
+       loadCart()
     }
+
+  fun loadCart(){
+
+      val model = ViewModelProvider(this)[CartViewModel::class.java]
+
+      model.CartList?.observe(this,object : Observer<CartResponse> {
+          override fun onChanged(t: CartResponse?) {
+
+              generateDataList(t?.data?.toMutableList())
+totalamount.setText(t?.total.toString())
+          }
+  })
+  }
     fun generateDataList(dataList: MutableList<DataCart?>?) {
         val recyclerView=findViewById<RecyclerView>(R.id.addtocartrecyleview) as? RecyclerView
         val linear:LinearLayoutManager=
@@ -84,7 +58,7 @@ val totalamount:TextView=findViewById(R.id.totalamount)
         val adapter = CartAdapter(this@AddToCart, dataList)
         recyclerView?.adapter=adapter
         recyclerView?.addItemDecoration(DividerItemDecorator(resources.getDrawable(R.drawable.divider)))
-        recyclerView?.setHasFixedSize(true)
+       // recyclerView?.setHasFixedSize(true)
 
         adapter.notifyDataSetChanged()
 //        this@AddToCart.recreate()
@@ -134,6 +108,6 @@ startActivity(intent)
 
     override fun onResume() {
         super.onResume()
-
+loadCart()
     }
 }

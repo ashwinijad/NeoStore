@@ -15,14 +15,14 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.neostore.BaseClassActivity
 import com.example.neostore.HomeActivity
 import com.example.neostore.Login.LoginResponse
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
+import com.example.neostore.ClientApi.RetrofitClient
 import com.example.neostore.SharedPrefManager
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -40,7 +40,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class EditProfile:AppCompatActivity (){
+class EditProfile:BaseClassActivity (){
     private val IMAGE = 100
     var bitmap: Bitmap? = null
     var profile:ImageView?=null
@@ -52,17 +52,7 @@ class EditProfile:AppCompatActivity (){
         setContentView(R.layout.editprofile)
         var mActionBarToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbartable);
         setSupportActionBar(mActionBarToolbar);
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null){
-            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
-            getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_keyboard_arrow_left_black_24dp);
-            getSupportActionBar()?.setDisplayShowTitleEnabled(false);
-
-            //supportActionBar?.setTitle("Tables")
-            //    getSupportActionBar()?.setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.Myaccount) + "</font>")));
-
-        }
+      setEnabledTitle()
         val myCalendar: Calendar = Calendar.getInstance()
 
         val edittext1 = findViewById(R.id.dob) as EditText
@@ -91,8 +81,8 @@ class EditProfile:AppCompatActivity (){
 
         val token :String =SharedPrefManager.getInstance(applicationContext).user.access_token.toString()
         RetrofitClient.instance.fetchUser(token)
-            .enqueue(object : Callback<My_account_base_response> {
-                override fun onFailure(call: Call<My_account_base_response>, t: Throwable) {
+            .enqueue(object : Callback<Myaccountbaseresponse> {
+                override fun onFailure(call: Call<Myaccountbaseresponse>, t: Throwable) {
 
                     Log.d("res", "" + t)
 
@@ -100,16 +90,16 @@ class EditProfile:AppCompatActivity (){
                 }
 
                 override fun onResponse(
-                    call: Call<My_account_base_response>,
-                    response: Response<My_account_base_response>
+                    call: Call<Myaccountbaseresponse>,
+                    response: Response<Myaccountbaseresponse>
                 ) {
                     var res = response
 
                     if (res.body()?.status == 200) {
                         //  val retro: List<Myaccount_data> = response.body().getData()
 
-                        val retro: Myaccount_data = res.body()!!.data
-                        val retro1: User_data = retro.user_data
+                        val retro: Myaccountdata = res.body()!!.data
+                        val retro1: Userdata = retro.user_data
                         Glide.with(applicationContext).load(retro1.profile_pic)
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .placeholder(R.drawable.ic_launcher_foreground)
@@ -119,13 +109,10 @@ class EditProfile:AppCompatActivity (){
                         try {
                             val jObjError =
                                 JSONObject(response.errorBody()!!.string())
-                            Toast.makeText(
-                                applicationContext,
-                                jObjError.getString("user_msg"),
-                                Toast.LENGTH_LONG
-                            ).show()
+                          showToast(applicationContext,jObjError.getString("user_msg")
+                          )
                         } catch (e: Exception) {
-                            Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
+showToast(applicationContext,e.message)
                             Log.e("errorrr", e.message)
                         }
                     }
@@ -137,18 +124,7 @@ class EditProfile:AppCompatActivity (){
 
         profile?.setOnClickListener(View.OnClickListener {
 
-            /* val intent = Intent()
-            intent.type = "image/*"
-            intent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(intent, IMAGE)*/
 
-            */
-            /* val GalIntent = Intent(Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-
-            startActivityForResult(Intent.createChooser(GalIntent, "Select Image From Gallery"), 2)
-
-            */
             checkAndroidVersion()
 
         })
@@ -214,24 +190,17 @@ class EditProfile:AppCompatActivity (){
                         Log.d("response check ", "" + response.body()?.status.toString())
                         if (res.body()?.status == 200) {
                             progressDialog?.dismiss()
-                            Toast.makeText(
-                                applicationContext,
-                                res.body()?.message,
-                                Toast.LENGTH_LONG
-                            ).show()
+                            showToast(applicationContext,res.body()?.message )
                             Log.d("kjsfgxhufb", response.body()?.status.toString())
                         } else {
                             try {
                                 val jObjError =
                                     JSONObject(response.errorBody()!!.string())
-                                Toast.makeText(
-                                    applicationContext,
-                                    jObjError.getString("message") + jObjError.getString("user_msg"),
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                showToast(applicationContext, jObjError.getString("user_msg"))
+                                progressDialog?.dismiss()
+
                             } catch (e: Exception) {
-                                Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG)
-                                    .show()
+                                showToast(applicationContext,e.message)
                                 Log.e("errorrr", e.message)
                             }
                         }

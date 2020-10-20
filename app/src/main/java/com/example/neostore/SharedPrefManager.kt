@@ -1,8 +1,9 @@
 package com.example.neostore
 
 import android.content.Context
-import com.example.neostore.Cart.DataCart
-import com.example.neostore.Cart.ProductCart
+import com.example.neostore.Login.Data
+import com.example.neostore.Login.LoginResponse
+import retrofit2.Callback
 
 class SharedPrefManager private constructor(private val mCtx: Context) {
 
@@ -65,52 +66,6 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         editor.putString("modified", user.modified)
         editor.putString("created", user.created)
         editor.putString("access_token", user.access_token)
-
-
-        editor.apply()
-
-    }
-    val productcart: ProductCart
-        get() {
-            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            return ProductCart(
-                sharedPreferences.getInt("id", -1),
-                sharedPreferences.getString("name", null)!!,
-                sharedPreferences.getInt("cost", -1),
-                sharedPreferences.getString("product_category", null)!!,
-
-                sharedPreferences.getString("product_images", null)!!,
-
-
-                sharedPreferences.getInt("sub_total", -1)
-
-
-
-
-
-                )
-        }
-/*
-'    @SerializedName("id") val id : Int,
-    @SerializedName("name") val name : String,
-    @SerializedName("cost") val cost : Int,
-    @SerializedName("product_category") val product_category : String,
-    @SerializedName("product_images") val product_images : String,
-    @SerializedName("sub_total") val sub_total : Int
- */
-
-    fun saveproductcart(productcart: ProductCart) {
-
-        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-
-        editor.putInt("id", productcart.id)
-        editor.putString("name", productcart.name)
-        editor.putInt("cost", productcart.cost)
-        editor.putString("product_category", productcart.product_category)
-        editor.putString("product_images", productcart.product_images)
-
-        editor.putInt("sub_total", productcart.sub_total)
 
 
         editor.apply()

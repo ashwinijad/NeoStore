@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,10 +13,11 @@
             android:layout_height="wrap_content"
 
             android:id="@+id/toolbartable"
-            android:background="@color/colorPrimaryDark">
+            android:background="@color/colorPrimary">
 
 
         </androidx.appcompat.widget.Toolbar>
+
         <ImageView
 android:layout_marginRight="20dp"
             android:src="@drawable/add_icon"
@@ -30,12 +32,13 @@ android:layout_marginRight="20dp"
             android:id="@+id/addbutton"
             android:textStyle="bold"/>
     </RelativeLayout>
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/addressrecyclerview"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -45,8 +48,7 @@ android:layout_marginRight="20dp"
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/addtocartrecyleview"
-        android:layout_above="@id/fl_footer"
+        android:layout_below="@id/recyclerview"
         android:text="PLACE ORDER"
         android:background="@drawable/mybuttonred"
         android:textColor="#FFFFFF"
@@ -55,5 +57,17 @@ android:layout_marginRight="20dp"
         android:layout_marginRight="20dp"
         android:id="@+id/ordernow"
         />
-    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    No added        \n   address yet"
+            android:textSize="60dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/emptytext">
+
+        </TextView>
+    </RelativeLayout>
 </LinearLayout>

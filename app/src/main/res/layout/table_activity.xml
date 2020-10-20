@@ -4,6 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+   <!-- <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cart_is_empty"
+        android:textSize="60dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerInParent="true"
+        android:id="@+id/emptytext">
+
+    </TextView>
+    -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +25,7 @@
             app:collapseIcon="@drawable/ic_arrow_back_black_24dp"
 
             android:id="@+id/toolbartable"
-            android:background="@color/colorPrimaryDark">
+            android:background="@color/colorPrimary">
        <!--     <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,6 +39,13 @@
         </androidx.appcompat.widget.Toolbar>
 
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layout_no_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center"></LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_below="@id/relative"

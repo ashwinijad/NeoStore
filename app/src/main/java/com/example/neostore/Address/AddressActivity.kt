@@ -7,21 +7,22 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
 import com.example.neostore.Address.Room.Address
-import com.example.neostore.Cart.DividerItemDecorator
+import com.example.neostore.BaseClassActivity
+import com.example.neostore.Cart.AddToCart
+import com.example.neostore.ClientApi.RetrofitClient
 import com.example.neostore.ForgotResponse
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
 import com.example.neostore.SharedPrefManager
 import kotlinx.android.synthetic.main.address.*
+import kotlinx.android.synthetic.main.address.emptytext
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -77,14 +78,18 @@ override fun onResume()
 
 }
 }*/
-class AddressActivity : AppCompatActivity(){
+class AddressActivity : BaseClassActivity(){
     private lateinit var data: LiveData<MutableList<Address>>
     private  var data1:Int = 0
     var adapter: AddressAdapter? =null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.address)
-
+        var mActionBarToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbartable);
+        setSupportActionBar(mActionBarToolbar);
+   setScreenTitle("Address List")
+        mActionBarToolbar.setNavigationOnClickListener(View.OnClickListener {
+            onBackPressed() })
         addbutton.findViewById<View>(R.id.addbutton).setOnClickListener {
             val intent = Intent(this, AddAddressActivity::class.java)
             startActivity(intent)
@@ -104,6 +109,16 @@ class AddressActivity : AppCompatActivity(){
                 DividerItemDecoration.VERTICAL
             )
         )
+
+        recyclerView.addOnChildAttachStateChangeListener(object : OnChildAttachStateChangeListener {
+            override fun onChildViewAttachedToWindow(view: View) {
+                emptytext.setVisibility(View.INVISIBLE)
+            }
+
+            override fun onChildViewDetachedFromWindow(view: View) {
+                emptytext.setVisibility(View.VISIBLE)
+            }
+        })
         recyclerView.addOnScrollListener(object :
             RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -117,9 +132,24 @@ class AddressActivity : AppCompatActivity(){
         })
         val application = application as CustomApplication
         data = application.database.AddressDao().getAddressesWithChanges()
+
         data.observe(this, Observer { words1 ->
-            // Update the cached copy of the words in the adapter.
-            words1?.let {  adapter.updateData(it) }})
+
+            if (words1.size > 0) {
+                ordernow.setVisibility(View.VISIBLE)
+
+                emptytext.setVisibility(View.GONE)
+
+            } else {
+                ordernow.setVisibility(View.GONE)
+
+                emptytext.setVisibility(View.VISIBLE)
+
+            }
+
+            words1?.let { adapter.updateData(it) }
+        })
+
 
     }
     var mMessageReceiver: BroadcastReceiver = object : BroadcastReceiver() {
@@ -131,12 +161,13 @@ class AddressActivity : AppCompatActivity(){
             val ItemName = intent.getStringExtra("item1")
           ordernow.setOnClickListener {
 
-              RetrofitClient.instanceorder.ordernow(token, ItemName)
+              RetrofitClient.instance.ordernow(token, ItemName)
                   .enqueue(object : Callback<ForgotResponse> {
                       override fun onFailure(call: Call<ForgotResponse>, t: Throwable) {
 
                           Log.d("res", "" + t)
                       }
+
                       override fun onResponse(
                           call: Call<ForgotResponse>,
                           response: Response<ForgotResponse>
@@ -146,26 +177,20 @@ class AddressActivity : AppCompatActivity(){
                           if (res.body()?.status == 200) {
 
                               Log.d("response check ", "" + response.body()?.status.toString())
-                              Toast.makeText(
-                                  applicationContext,
-                                  res.body()?.user_msg,
-                                  Toast.LENGTH_LONG
-                              ).show()
+showToast(applicationContext,res.body()?.user_msg)
+                              val i = Intent(applicationContext, AddToCart::class.java)
+                              startActivity(i)
                               Log.d("kjsfgxhufb", response.body()?.user_msg.toString())
-                          }
-                          else
-                          {
+                          } else {
                               try {
                                   val jObjError =
                                       JSONObject(response.errorBody()!!.string())
-                                  Toast.makeText(
-                                      applicationContext,
-                                      jObjError.getString("message")+jObjError.getString("user_msg"),
-                                      Toast.LENGTH_LONG
-                                  ).show()
+
+                                  showToast(applicationContext,jObjError.getString("user_msg"))
+
                               } catch (e: Exception) {
-                                  Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
-                                  Log.e("errorrr",e.message)
+                                 showToast(applicationContext,e.message)
+                                  Log.e("errorrr", e.message)
                               }
                           }
                       }

@@ -1,4 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/holder"
+        android:layout_width="match_parent"
+        android:background="#000000"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:background="#ffffff"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbar"
+                app:titleTextColor="#ffffff"
+                app:title="@string/app_name"
+                android:background="@color/colorPrimary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/cvcxv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/images_container"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_below="@id/toolbar"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                >
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/viewpagerhome"
+                    tools:ignore="MissingConstraints" />
+
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginBottom="-3dp"
+                    android:gravity="bottom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="10dip"
+                    app:centered="true"
+                    app:fillColor="@color/colorPrimary"
+                    app:pageColor="#FFFFFF"
+                    app:snap="false"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/images_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <Button
+                    android:id="@+id/image1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/tableicon"
+                    app:layout_constraintBottom_toTopOf="@+id/image3"
+                    app:layout_constraintEnd_toStartOf="@+id/image2"
+                    app:layout_constraintHeight_percent="0.48"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.48" />
+
+                <Button
+                    android:id="@+id/image2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/sofaicon"
+                    app:layout_constraintBottom_toTopOf="@+id/image4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.48"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/image1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.48" />
+
+                <Button
+                    android:id="@+id/image3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/chairsicon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/image4"
+                    app:layout_constraintHeight_percent="0.48"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image1"
+                    app:layout_constraintWidth_percent="0.48" />
+
+                <Button
+                    android:id="@+id/image4"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/cupboardicon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.48"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/image3"
+                    app:layout_constraintTop_toBottomOf="@+id/image2"
+                    app:layout_constraintWidth_percent="0.48" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_gravity="start"
+        app:itemTextColor="#ffffff"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/menu"
+        app:itemIconTint="#ffffff"
+        app:itemBackground="@drawable/drawer_item_bg"
+        />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+    <!--
     <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -7,153 +173,138 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
-
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/holder"
             android:layout_width="match_parent"
             android:background="#000000"
             android:layout_height="match_parent"
             android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical">
 
-
-            <LinearLayout
-                android:id="@+id/content"
-                android:layout_width="wrap_content"
-                android:background="#ffffff"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@string/app_name"
+                app:titleTextColor="#ffffff"
+                tools:ignore="MissingConstraints" />
 
-                <androidx.appcompat.widget.Toolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/toolbar"
-                    app:titleTextColor="#ffffff"
-                    app:title="@string/app_name"
-                    android:background="@color/colorPrimary"
-                    />
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpagerhome"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                app:layout_constraintBottom_toTopOf="@id/image_divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                tools:ignore="NotSibling" >
 
-                <androidx.viewpager.widget.ViewPager
-                    android:layout_below="@id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="225dp"
-                    android:id="@+id/viewpagerhome"/>
-
-                <com.viewpagerindicator.CirclePageIndicator
-                    android:id="@+id/indicator"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="-30dp"
-                    android:layout_marginBottom="-3dp"
-                    android:gravity="bottom"
-                    android:padding="10dip"
-                    app:centered="true"
-                    app:fillColor="@color/colorPrimary"
-                    app:pageColor="#FFFFFF"
-                    app:snap="false" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/viewpagerhome"
-                    android:orientation="vertical"
-                    android:layout_gravity="bottom"
-                    android:gravity="bottom"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/viewpagerhome"
-                        android:orientation="horizontal"
-                        android:id="@+id/linear1"
-                        android:weightSum="2"
-                        >
-                        <ImageView
-                            android:id="@+id/image1"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/tableicon"/>
-                        <ImageView
-                            android:id="@+id/image2"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sofaicon"
-                            />
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/linear1"
-                        android:orientation="horizontal"
-
-                        android:weightSum="2"
-                        >
-                        <ImageView
-                            android:id="@+id/image3"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/chairsicon"
-                            tools:ignore="Suspicious0dp" />
-                        <ImageView
-                            android:id="@+id/image4"
-
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/cupboardicon"
-                            tools:ignore="Suspicious0dp" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-        </RelativeLayout>
+            </androidx.viewpager.widget.ViewPager>
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-30dp"
+                android:layout_marginBottom="-3dp"
+                android:gravity="bottom"
+                android:padding="10dip"
+                app:centered="true"
+                app:fillColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@id/viewpagerhome"
+                app:layout_constraintEnd_toEndOf="@id/viewpagerhome"
+                app:layout_constraintStart_toStartOf="@id/viewpagerhome"
+                app:pageColor="#FFFFFF"
+                app:snap="false" />
 
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/vertical_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/image_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="view1, view2" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/horizontal_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="view3, view4" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/tableicon"
+                app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/vertical_divider"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/sofaicon"
+                app:layout_constraintBottom_toTopOf="@id/horizontal_divider"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_divider" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/chairsicon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/vertical_divider"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/cupboardicon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_divider" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
             android:layout_gravity="start"
-            app:itemTextColor="#ffffff"
+            android:background="@android:color/transparent"
             app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/menu"
-app:itemIconTint="#ffffff"
             app:itemBackground="@drawable/drawer_item_bg"
-            />
+            app:itemIconTint="#ffffff"
 
-    </androidx.drawerlayout.widget.DrawerLayout>
-    <!-- <nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
-         xmlns:android="http://schemas.android.com/apk/res/android"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-  >
-         <nl.psdcompany.duonavigationdrawer.views.DuoMenuView
-             xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:tag="@string/tag_menu"
-             app:footer="@layout/view_footer"
-             app:header="@layout/view_header"
-             android:layout_width="wrap_content"
-             android:layout_height="match_parent"
-             />
-     </nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout>-->
+            app:itemTextColor="#ffffff"
+            app:menu="@menu/menu" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>-->

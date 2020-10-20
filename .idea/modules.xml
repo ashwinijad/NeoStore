@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NeoSTORE.iml" filepath="$PROJECT_DIR$/.idea/modules/NeoSTORE.iml" group="NeoSTORE" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="NeoSTORE/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NeoSTORE.iml" filepath="$PROJECT_DIR$/.idea/modules/NeoSTORE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NeoSTORE.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NeoSTORE.app.iml" />
     </modules>
   </component>
 </project>

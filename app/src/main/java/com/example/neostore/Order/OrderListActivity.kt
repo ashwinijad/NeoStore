@@ -1,64 +1,46 @@
 package com.example.neostore.Order
 
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
+import com.example.neostore.ClientApi.RetrofitClient
+import com.example.neostore.BaseClassActivity
 import com.example.neostore.SharedPrefManager
+import com.example.neostore.table.ProductAdapter
+import com.example.neostore.table.ProductViewModel
+import com.example.neostore.table.Table_response
+import com.example.neostore.table.Tabledata
+import kotlinx.android.synthetic.main.table_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class OrderListActivity :AppCompatActivity() {
+class OrderListActivity : BaseClassActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.table_activity)
+
         var mActionBarToolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbartable);
         setSupportActionBar(mActionBarToolbar);
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null){
-            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
-            getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_keyboard_arrow_left_black_24dp);
+       setScreenTitle("My Orders")
 
-            //supportActionBar?.setTitle("Tables")
-            getSupportActionBar()?.setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.MyOrder) + "</font>")));
+        val model = ViewModelProvider(this)[OrderListViewModel::class.java]
 
+        model.orderList?.observe(this,object : Observer<Order_Response_Base> {
+            override fun onChanged(t: Order_Response_Base?) {
 
-        }
-
-
-        val token: String =
-            SharedPrefManager.getInstance(
-                applicationContext
-            ).user.access_token.toString()
-        RetrofitClient.instanceorder.getAllOrderList(token).enqueue(object :
-            Callback<Order_Response_Base> {
-            override fun onFailure(call: Call<Order_Response_Base>, t: Throwable) {
-                Toast.makeText(applicationContext, "falied", Toast.LENGTH_LONG).show()
+   generateDataList(t?.data!!)
             }
 
-            override fun onResponse(
-                call: Call<Order_Response_Base>,
-                response: Response<Order_Response_Base>
-            ) {
-
-                if (response.isSuccessful) {
-
-                    var res = response
-                    Log.e("checkresponsee", response.body().toString())
-                    val retro: List<Order_Response_Data> = response.body()!!.data
-                    generateDataList(retro)
-                }
-            }
 
         })
     }

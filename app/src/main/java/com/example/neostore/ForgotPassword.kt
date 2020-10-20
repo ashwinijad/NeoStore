@@ -1,82 +1,43 @@
 package com.example.neostore
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.neostore.Login.LoginActivity
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.neostore.Login.*
 
-class ForgotPassword : AppCompatActivity() {
+class ForgotPassword : BaseClassActivity() {
+    private lateinit var model: UserViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.forgotpassword)
 
         var forgotemailedt =findViewById<EditText>(R.id.forgotemailedt)
         var sendmailforgot =findViewById<Button>(R.id.sendmailforgot)
+        model = ViewModelProvider(this)[UserViewModel::class.java]
+
+        model.ForgotPasswordData.observe(this, object : Observer<ForgotResponse?> {
+            override fun onChanged(t: ForgotResponse?) {
 
 
+                       }
+
+        })
         sendmailforgot.setOnClickListener {
             // val i = Intent(applicationContext, HomeActivity::class.java)
             //startActivity(i)
             val email = forgotemailedt.text.toString().trim()
 
             if (email.isEmpty()) {
-                Toast.makeText(
-                    applicationContext, "Data is missing",Toast.LENGTH_LONG
-                ).show()
+               showToast(applicationContext,"Data is missing")
                 forgotemailedt.error = "Email required"
                 forgotemailedt.requestFocus()
                 return@setOnClickListener
             }
+            model.loadForgot(email)
 
-
-
-            RetrofitClient.instance.emailForgotpwd(email)
-                .enqueue(object : Callback<ForgotResponse> {
-                    override fun onFailure(call: Call<ForgotResponse>, t: Throwable) {
-                        Log.d("res", "" + t)
-
-
-                    }
-
-                    override fun onResponse(
-                        call: Call<ForgotResponse>,
-                        response: Response<ForgotResponse>
-                    ) {
-                        var res = response
-
-                        Log.d("response check ", "" + response.body()?.status.toString())
-                        if (res.body()?.status==200) {
-                            Toast.makeText(
-                                applicationContext,
-                                res.body()?.user_msg,
-                                Toast.LENGTH_LONG
-                            ).show()
-                            Log.d("kjsfgxhufb",response.body()?.user_msg.toString())
-                        }
-                        else{
-                            try {
-                                val jObjError =
-                                    JSONObject(response.errorBody()!!.string())
-                                Toast.makeText(
-                                    applicationContext,
-                                    jObjError.getString("message")+jObjError.getString("user_msg"),
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            } catch (e: Exception) {
-                                Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
-                                Log.e("errorrr",e.message)
-                            }
-                        }
-                    }
-                })
 
         }
 
@@ -84,8 +45,6 @@ class ForgotPassword : AppCompatActivity() {
 
     }
     override fun onBackPressed() {
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivityForResult(intent, 2)
         super.onBackPressed()
     }
 }

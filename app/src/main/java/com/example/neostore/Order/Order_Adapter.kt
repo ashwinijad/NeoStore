@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neostore.OrderDetail.OrderDetailList
 import com.example.neostore.R
@@ -19,7 +20,9 @@ class Order_Adapter(var context: Context, var Tablelist: List<Order_Response_Dat
    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.order_list_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.order_list_item,
+            parent,
+            false)
         return MyViewHolder(view)
     }
 
@@ -33,16 +36,20 @@ class Order_Adapter(var context: Context, var Tablelist: List<Order_Response_Dat
         holder.orderid.text = Tablelist.get(position).id.toString()
         holder.orderdate.text=Tablelist.get(position).created
         holder.ordercost.text=Tablelist.get(position).cost.toString()
-        Log.e("checkkkkk",Tablelist.get(position).id.toString())
+        Log.e("checkkkkk", Tablelist.get(position).id.toString())
 
         holder.itemView!!.setOnClickListener {
 
 
             val context:Context=holder.itemView.context
+
+            val intent = Intent("custom-message1")
+            intent.putExtra("itemid",Tablelist.get(position).id.toString());
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
             val i=Intent(context,
                 OrderDetailList::class.java)
-            i.putExtra("id",Tablelist.get(position).id.toString())
-            Log.e("checkid",Tablelist.get(position).id.toString())
+            i.putExtra("id", Tablelist.get(position).id.toString())
+            Log.e("checkid", Tablelist.get(position).id.toString())
             context.startActivity(i)
         }
     }

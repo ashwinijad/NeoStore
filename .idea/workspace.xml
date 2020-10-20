@@ -6,11 +6,16 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="DebugDB" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a1313c5-a6e4-4ff7-b786-837dec4c88b2" name="Default Changelist" comment="">
+    <list default="true" id="9a1313c5-a6e4-4ff7-b786-837dec4c88b2" name="Default Changelist" comment="update">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/ProductAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -25,23 +30,126 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_0_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_common_2_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_collection_collection_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_1_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_0_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_common_4_0_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_3_0_alpha06_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_java8_2_3_0_alpha06_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_3_0_alpha06_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_ktx_2_3_0_alpha06_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_3_0_alpha06_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_ktx_2_3_0_alpha06_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_savedstate_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_room_room_common_2_2_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_daimajia_swipelayout_library_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_daimajia_swipelayout_library_1_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_JakeWharton_ViewPagerIndicator_2_4_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_JakeWharton_ViewPagerIndicator_2_4_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_11_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_11_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_11_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_11_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_picasso_picasso2_okhttp3_downloader_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_mikhaellopez_circularimageview_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_mikhaellopez_circularimageview_3_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_8_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_13_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_5_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_3_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_3_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_theartofdev_edmodo_android_image_cropper_2_5_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_theartofdev_edmodo_android_image_cropper_2_5_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__me_relex_circleindicator_1_2_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__me_relex_circleindicator_1_2_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_android_extensions_runtime_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_71_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_71_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_android_1_3_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_core_1_3_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/NeoSTORE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/NeoSTORE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddAddressActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddAddressActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/AddressAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Address/ListItemClick.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Api.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ClientApi/Api.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Cart/AddToCart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Cart/AddToCart.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Cart/CartAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Cart/CartAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Data.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Login/Data.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/DefaultResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ForgotPassword.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ForgotPassword.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/HomeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Login/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Login/LoginResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Login/LoginResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/MenuAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Order/OrderListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Order/OrderListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Order/Order_Adapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/Order/Order_Adapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/OrderDetail/OrderDetailList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/OrderDetail/OrderDetailList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ProductDetails/Product_details.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ProductDetails/Productdetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/RegisterActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ResetPassword/ErrorUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ResetPassword/ErrorUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ResetPassword/ResetPasswordActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ResetPassword/ResetPasswordActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/RetrofitClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/ClientApi/RetrofitClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/SharedPrefManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/SharedPrefManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/chair/Chairs_Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/UI/Chairs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/cupboards/Cupboards_Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/UI/Sofa.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/EditProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/EditProfile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/MyAccount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/MyAccount.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/My_account_base_response.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/Myaccountbaseresponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/Myaccount_data.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/Myaccountdata.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/Product_categories.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/Productcategories.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/User_data.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/myaccount/Userdata.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/sofas/Sofa_Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/UI/Cupboards.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Table_Adapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Tabledata.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Tabledata.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Tables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/neostore/table/Tables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mybutton.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mybutton.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/selected_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/selected_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/addaddress.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/addaddress.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/address.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/address.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/addtocart_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/addtocart_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/editprofile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/editprofile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/order_detail_item_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_detail_item_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/home_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/product_detail_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/product_detail_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/product_details_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/product_details_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ratedialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ratedialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sofa_activity_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/table_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/table_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/table_recycle_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/table_recycle_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.0.105:5555" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.0.103:8888]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -58,13 +166,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
-        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
-        <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin File" />
+        <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -77,20 +185,19 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DEBUGGABLE_DEVICE" value="vivo-vivo_1723-1f59bec" />
     <property name="DEBUGGABLE_PROCESS" value="com.example.neostore" />
     <property name="DEBUGGER_ID" value="Auto" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="1f59bec" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-29T12:36:55.734Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="192.168.0.103:8888" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-15T11:33:11.289Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/AndroidTutorial-2" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/ViewModelDemo" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -101,9 +208,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.neostore.Login" />
+      <recent name="com.example.neostore" />
       <recent name="com.example.neostore.ProductDetails" />
-      <recent name="com.example.neostore.ResetPassword" />
-      <recent name="com.example.neostore.myaccount" />
+      <recent name="com.example.neostore.ClientApi" />
+      <recent name="com.example.neostore.UI" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Dell\GitProjects\NeoStore\app\src\main\res\drawable" />
@@ -120,12 +229,13 @@
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="app" />
+      <module name="NeoSTORE.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
@@ -161,11 +271,16 @@
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
         <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -201,106 +316,106 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1594624639890" />
-    <state x="200" y="96" key="#PSD" timestamp="1599108724030">
+    <state x="200" y="96" key="#PSD" timestamp="1603173040612">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="200" y="96" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1599108724030" />
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592982083595">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592982083595" />
+    <state x="200" y="96" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1603173040612" />
     <state x="426" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598363938426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1598363938426" />
-    <state x="784" y="80" width="417" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1599127355536">
+    <state x="784" y="80" width="417" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1603085248972">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="784" y="80" width="417" height="582" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599127355536" />
-    <state x="363" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1597742916327">
+    <state x="784" y="80" width="417" height="582" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603085248972" />
+    <state x="363" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602598964306">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1597742916327" />
-    <state x="261" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1596788296415">
+    <state x="363" y="92" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1602598964306" />
+    <state x="261" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1602754751043">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="261" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1596788296415" />
-    <state x="328" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598590657058">
+    <state x="261" y="289" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1602754751043" />
+    <state x="328" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603168521927">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="328" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1598590657058" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597402481807">
+    <state x="328" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1603168521927" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603182563165">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597402481807" />
-    <state x="462" y="15" width="458" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1595838440558">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603182563165" />
+    <state x="462" y="15" width="458" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1603182492089">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="15" width="458" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1595838440558" />
+    <state x="462" y="15" width="458" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603182492089" />
     <state x="263" y="119" key="AndroidCreateResourceDirectoryDialog" timestamp="1598000314826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="119" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598000314826" />
-    <state x="263" y="119" key="AndroidCreateResourceFileDialog" timestamp="1599123243061">
+    <state x="263" y="119" key="AndroidCreateResourceFileDialog" timestamp="1602145376291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="119" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1599123243061" />
-    <state x="541" y="177" key="AndroidCreateXmlResourceDialog" timestamp="1597991309444">
+    <state x="263" y="119" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1602145376291" />
+    <state x="541" y="177" key="AndroidCreateXmlResourceDialog" timestamp="1600327426847">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="541" y="177" key="AndroidCreateXmlResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1597991309444" />
+    <state x="541" y="177" key="AndroidCreateXmlResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1600327426847" />
     <state x="538" y="129" key="AndroidProcessChooserDialog" timestamp="1596692712615">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="538" y="129" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1596692712615" />
-    <state x="357" y="0" key="CommitChangelistDialog2" timestamp="1598516184970">
+    <state x="357" y="0" key="CommitChangelistDialog2" timestamp="1602670613438">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="357" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598516184970" />
-    <state width="475" height="466" key="DebuggerActiveHint" timestamp="1599042758328">
+    <state x="357" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1602670613438" />
+    <state width="475" height="466" key="DebuggerActiveHint" timestamp="1599465392494">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="475" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1599042758328" />
+    <state width="475" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1599465392494" />
     <state x="147" y="120" width="1111" height="488" key="DiffContextDialog" timestamp="1598590709715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="147" y="120" width="1111" height="488" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1598590709715" />
-    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1599135154353">
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1603168820079">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599135154353" />
-    <state width="1251" height="233" key="GridCell.Tab.0.bottom" timestamp="1599136173235">
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603168820079" />
+    <state width="1251" height="161" key="GridCell.Tab.0.bottom" timestamp="1603181268156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="233" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599136173235" />
-    <state width="1251" height="233" key="GridCell.Tab.0.center" timestamp="1599136173235">
+    <state width="1251" height="161" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603181268156" />
+    <state width="1251" height="161" key="GridCell.Tab.0.center" timestamp="1603181268156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="233" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599136173235" />
-    <state width="1251" height="233" key="GridCell.Tab.0.left" timestamp="1599136173235">
+    <state width="1251" height="161" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603181268156" />
+    <state width="1251" height="161" key="GridCell.Tab.0.left" timestamp="1603181268155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="233" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599136173235" />
-    <state width="1251" height="233" key="GridCell.Tab.0.right" timestamp="1599136173235">
+    <state width="1251" height="161" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603181268155" />
+    <state width="1251" height="161" key="GridCell.Tab.0.right" timestamp="1603181268156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="233" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599136173235" />
-    <state width="1251" height="366" key="GridCell.Tab.1.bottom" timestamp="1599129489413">
+    <state width="1251" height="161" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603181268156" />
+    <state width="1251" height="365" key="GridCell.Tab.1.bottom" timestamp="1603174385559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="366" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599129489413" />
-    <state width="1251" height="366" key="GridCell.Tab.1.center" timestamp="1599129489413">
+    <state width="1251" height="365" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603174385559" />
+    <state width="1251" height="365" key="GridCell.Tab.1.center" timestamp="1603174385559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="366" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1599129489413" />
-    <state width="1251" height="366" key="GridCell.Tab.1.left" timestamp="1599129489413">
+    <state width="1251" height="365" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1603174385559" />
+    <state width="1251" height="365" key="GridCell.Tab.1.left" timestamp="1603174385559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="366" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1599129489413" />
-    <state width="1251" height="366" key="GridCell.Tab.1.right" timestamp="1599129489413">
+    <state width="1251" height="365" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1603174385559" />
+    <state width="1251" height="365" key="GridCell.Tab.1.right" timestamp="1603174385559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1251" height="366" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1599129489413" />
+    <state width="1251" height="365" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1603174385559" />
+    <state x="282" y="107" key="IDE.errors.dialog" timestamp="1602570466989">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="282" y="107" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1602570466989" />
     <state x="184" y="7" key="SettingsEditor" timestamp="1594624629640">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -309,22 +424,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="294" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598862565995" />
-    <state width="673" height="344" key="XDebugger.FullValuePopup" timestamp="1599114180861">
+    <state width="673" height="344" key="XDebugger.FullValuePopup" timestamp="1602741197270">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="673" height="344" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1599114180861" />
-    <state x="518" y="142" key="chooseDestDirectoryDialog" timestamp="1598616644636">
+    <state width="673" height="344" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1602741197270" />
+    <state x="518" y="142" key="chooseDestDirectoryDialog" timestamp="1599651171284">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="518" y="142" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598616644636" />
-    <state x="110" y="120" width="1146" height="488" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1598590373970">
+    <state x="518" y="142" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1599651171284" />
+    <state x="110" y="120" width="1146" height="488" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602571369658">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="110" y="120" width="1146" height="488" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1598590373970" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1599108177060">
+    <state x="110" y="120" width="1146" height="488" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1602571369658" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1602589182129">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1599108177060" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602589182129" />
     <state x="332" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595490715903">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -333,32 +448,29 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1598516151436" />
-    <state x="444" y="208" key="edit.logcat.filter.dialog.dimensions" timestamp="1592486737496">
+    <state x="0" y="0" width="737" height="728" key="find.popup" timestamp="1599564142445">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="444" y="208" key="edit.logcat.filter.dialog.dimensions/0.0.1366.728@0.0.1366.728" timestamp="1592486737496" />
+    <state x="0" y="0" width="737" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1599564142445" />
     <state x="420" y="7" key="refactoring.ChangeSignatureDialog" timestamp="1598253111348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="420" y="7" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1598253111348" />
-    <state x="339" y="164" key="run.anything.popup" timestamp="1598533821830">
+    <state x="339" y="164" key="run.anything.popup" timestamp="1602679539779">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="164" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598533821830" />
-    <state x="339" y="21" width="672" height="676" key="search.everywhere.popup" timestamp="1599111412824">
+    <state x="339" y="164" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1602679539779" />
+    <state x="339" y="21" width="672" height="676" key="search.everywhere.popup" timestamp="1603087280291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="21" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599111412824" />
+    <state x="339" y="21" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603087280291" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/neostore/OrderDetail/OrderDetailList.kt</url>
-          <line>53</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="com.example.neostore.Login.LoginViewModel" fieldName="loginDataSource" />
+        <PinnedItemInfo typeName="com.example.neostore.Login.LoginViewModel" fieldName="loginFailedMessage" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daimajia.swipe.SwipeLayout
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter
 import com.example.neostore.Address.Room.Address
+import com.example.neostore.BaseClassActivity
 import com.example.neostore.R
 import java.util.*
 
@@ -65,7 +66,7 @@ import java.util.*
     private var addresses: MutableList<Address> = Collections.emptyList()
      val context: Context
     var index = -1
-    var listener1: ListItemClick? = null  //
+  //  var listener1: ListItemClick? = null  //
    // val application = application as CustomApplication
 
     private var lastSelectedPosition = -1
@@ -150,6 +151,7 @@ import java.util.*
                 "Deleted " + viewHolder.tv.getText().toString(),
                 Toast.LENGTH_SHORT
             ).show()
+            
         })
 
         mItemManger.bindView(viewHolder.itemView, position)

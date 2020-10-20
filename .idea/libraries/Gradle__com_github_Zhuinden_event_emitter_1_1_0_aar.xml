@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Zhuinden:event-emitter:1.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b9c62106b15650e39a76a84a6637e048/jetified-event-emitter-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b9c62106b15650e39a76a84a6637e048/jetified-event-emitter-1.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b9c62106b15650e39a76a84a6637e048/jetified-event-emitter-1.1.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Zhuinden/event-emitter/1.1.0/f64e17366bdc945a2a7316723e27d8c78651cdd8/event-emitter-1.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Zhuinden/event-emitter/1.1.0/e35b6bf5c19711062cb75cbde056a91fa52ec9fa/event-emitter-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

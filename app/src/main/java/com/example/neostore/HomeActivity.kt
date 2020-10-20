@@ -1,24 +1,22 @@
 package com.example.neostore
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.util.TypedValue
-import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.IdRes
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.core.view.MenuItemCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -26,16 +24,20 @@ import com.example.neostore.Address.AddressAdapter
 import com.example.neostore.Address.CustomApplication
 import com.example.neostore.Cart.AddToCart
 import com.example.neostore.Cart.CartResponse
-import com.example.neostore.Cart.DataCart
+import com.example.neostore.ClientApi.RetrofitClient
 import com.example.neostore.Login.LoginActivity
 import com.example.neostore.Order.OrderListActivity
-import com.example.neostore.chair.Chairs_Home
-import com.example.neostore.cupboards.Cupboards_Home
+import com.example.neostore.ProductDetails.Favouriteprod
+import com.example.neostore.ProductDetails.Productdetails
+import com.example.neostore.ProductDetails.RoomProdDB.FavProdDB
+import com.example.neostore.UI.Chairs
+import com.example.neostore.UI.Cupboards
+import com.example.neostore.UI.Sofa
 import com.example.neostore.myaccount.MyAccount
-import com.example.neostore.myaccount.My_account_base_response
-import com.example.neostore.myaccount.Myaccount_data
-import com.example.neostore.myaccount.User_data
-import com.example.neostore.sofas.Sofa_Home
+import com.example.neostore.myaccount.Myaccountbaseresponse
+import com.example.neostore.myaccount.Myaccountdata
+import com.example.neostore.myaccount.Userdata
+import com.example.neostore.table.Roomdbfav.favDB
 import com.example.neostore.table.Tables
 import com.google.android.material.navigation.NavigationView
 import com.viewpagerindicator.CirclePageIndicator
@@ -48,12 +50,21 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class HomeActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener  {
+class HomeActivity : BaseClassActivity(),NavigationView.OnNavigationItemSelectedListener  {
     private var mPager: ViewPager? = null
     private var currentPage = 0
     private var NUM_PAGES = 0
     private val END_SCALE = 0.7f
-    var Tablelist : List<Data> = listOf()
+    private var previousState = 0
+    private  var currentState:Int = 0
+
+    companion object
+{
+    var favoriteDatabase1: FavProdDB? = null
+
+    var favoriteDatabase: favDB? = null
+
+}
     private lateinit var counterView: TextView
     var adapter: AddressAdapter? =null
 
@@ -75,20 +86,35 @@ class HomeActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
+
+        if(!(SharedPrefManager.getInstance(this).isLoggedIn)){
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+            finish()
+        }
+      HomeActivity.favoriteDatabase = Room.databaseBuilder(applicationContext,
+          favDB::class.java, "myfavdb").allowMainThreadQueries().build()
+
+
+        Productdetails.favoriteDatabase = Room.databaseBuilder(applicationContext,
+            FavProdDB::class.java, "myfavdb").allowMainThreadQueries().build()
+
 image1.setOnClickListener{
     val i = Intent(applicationContext, Tables::class.java)
     startActivity(i)
 }
         image2.setOnClickListener{
-            val i = Intent(applicationContext, Sofa_Home::class.java)
+            val i = Intent(applicationContext, Sofa::class.java)
             startActivity(i)
         }
         image3.setOnClickListener{
-            val i = Intent(applicationContext, Chairs_Home::class.java)
+            val i = Intent(applicationContext, Chairs::class.java)
             startActivity(i)
         }
         image4.setOnClickListener {
-            val i = Intent(applicationContext, Cupboards_Home::class.java)
+            val i = Intent(applicationContext, Cupboards::class.java)
             startActivity(i)
         }
 
@@ -111,8 +137,8 @@ image1.setOnClickListener{
 
         val token :String =SharedPrefManager.getInstance(applicationContext).user.access_token.toString()
         RetrofitClient.instance.fetchUser(token)
-            .enqueue(object : Callback<My_account_base_response> {
-                override fun onFailure(call: Call<My_account_base_response>, t: Throwable) {
+            .enqueue(object : Callback<Myaccountbaseresponse> {
+                override fun onFailure(call: Call<Myaccountbaseresponse>, t: Throwable) {
 
                     Log.d("res", "" + t)
 
@@ -120,16 +146,16 @@ image1.setOnClickListener{
                 }
 
                 override fun onResponse(
-                    call: Call<My_account_base_response>,
-                    response: Response<My_account_base_response>
+                    call: Call<Myaccountbaseresponse>,
+                    response: Response<Myaccountbaseresponse>
                 ) {
                     var res = response
 
                     if (res.body()?.status == 200) {
                         //  val retro: List<Myaccount_data> = response.body().getData()
 
-                        val retro: Myaccount_data = res.body()!!.data
-                        val retro1: User_data = retro.user_data
+                        val retro: Myaccountdata = res.body()!!.data
+                        val retro1: Userdata = retro.user_data
 
 //image.setImageBitmap(decodedByte)
                         Glide.with(applicationContext).load(retro1.profile_pic)
@@ -142,13 +168,13 @@ image1.setOnClickListener{
                         try {
                             val jObjError =
                                 JSONObject(response.errorBody()!!.string())
-                            Toast.makeText(
-                                applicationContext,
-                                jObjError.getString("user_msg"),
-                                Toast.LENGTH_LONG
-                            ).show()
+                            ////  Toast.makeText(
+                            //      applicationContext,
+                            //     jObjError.getString("user_msg"),
+                            //     Toast.LENGTH_LONG
+                            //  ).show()
                         } catch (e: Exception) {
-                            Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
+                            showToast(applicationContext, e.message)
                             Log.e("errorrr", e.message)
                         }
                     }
@@ -159,7 +185,7 @@ image1.setOnClickListener{
 
 //navigationView
 
-        holderView = findViewById(R.id.holder)
+     //   holderView = findViewById(R.id.holder)
         var contentView:View?=null
         contentView=findViewById(R.id.content)
         setSupportActionBar(toolbar)
@@ -214,10 +240,10 @@ navigationView!!.setNavigationItemSelectedListener(this)
 
         counterView = navigationView!!.menu.findItem(R.id.MyCart).actionView.findViewById(R.id.counter)
 
-        RetrofitClient.instancecart.listcart(token).enqueue( object :
+        RetrofitClient.instance.listcart(token).enqueue(object :
             Callback<CartResponse> {
             override fun onFailure(call: Call<CartResponse>, t: Throwable) {
-                Toast.makeText(applicationContext,"falied", Toast.LENGTH_LONG).show()
+                showToast(applicationContext, "failed")
             }
 
             override fun onResponse(
@@ -225,15 +251,15 @@ navigationView!!.setNavigationItemSelectedListener(this)
                 response: Response<CartResponse>
             ) {
 
-                val res=response
+                val res = response
                 if (response.isSuccessful) {
 
                     val retro: String = response.body()!!.count.toString()
-                    if(retro.contains("0")){
+                    if (retro.contains("0")) {
 
                         counterView.setVisibility(View.GONE);
 
-                    }else{
+                    } else {
                         counterView.setVisibility(View.VISIBLE)
                         counterView.setText(retro)
 
@@ -264,8 +290,8 @@ navigationView!!.setNavigationItemSelectedListener(this)
 
         val token :String =SharedPrefManager.getInstance(applicationContext).user.access_token.toString()
         RetrofitClient.instance.fetchUser(token)
-            .enqueue(object : Callback<My_account_base_response> {
-                override fun onFailure(call: Call<My_account_base_response>, t: Throwable) {
+            .enqueue(object : Callback<Myaccountbaseresponse> {
+                override fun onFailure(call: Call<Myaccountbaseresponse>, t: Throwable) {
 
                     Log.d("res", "" + t)
 
@@ -273,16 +299,16 @@ navigationView!!.setNavigationItemSelectedListener(this)
                 }
 
                 override fun onResponse(
-                    call: Call<My_account_base_response>,
-                    response: Response<My_account_base_response>
+                    call: Call<Myaccountbaseresponse>,
+                    response: Response<Myaccountbaseresponse>
                 ) {
                     var res = response
 
                     if (res.body()?.status == 200) {
                         //  val retro: List<Myaccount_data> = response.body().getData()
 
-                        val retro: Myaccount_data = res.body()!!.data
-                        val retro1: User_data = retro.user_data
+                        val retro: Myaccountdata = res.body()!!.data
+                        val retro1: Userdata = retro.user_data
                         nav_user.setText(retro1.first_name + " " + retro1.last_name)
                         nav_email.setText(retro1.email)
 //image.setImageBitmap(decodedByte)
@@ -296,13 +322,9 @@ navigationView!!.setNavigationItemSelectedListener(this)
                         try {
                             val jObjError =
                                 JSONObject(response.errorBody()!!.string())
-                            Toast.makeText(
-                                applicationContext,
-                                jObjError.getString("user_msg"),
-                                Toast.LENGTH_LONG
-                            ).show()
+                            showToast(applicationContext, jObjError.getString("user_msg"))
                         } catch (e: Exception) {
-                            Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
+                            showToast(applicationContext, e.message)
                             Log.e("errorrr", e.message)
                         }
                     }
@@ -310,10 +332,10 @@ navigationView!!.setNavigationItemSelectedListener(this)
             })
         counterView = navigationView!!.menu.findItem(R.id.MyCart).actionView.findViewById(R.id.counter)
 
-        RetrofitClient.instancecart.listcart(token).enqueue( object :
+        RetrofitClient.instance.listcart(token).enqueue(object :
             Callback<CartResponse> {
             override fun onFailure(call: Call<CartResponse>, t: Throwable) {
-                Toast.makeText(applicationContext,"falied", Toast.LENGTH_LONG).show()
+                showToast(applicationContext, "failed")
             }
 
             override fun onResponse(
@@ -321,16 +343,16 @@ navigationView!!.setNavigationItemSelectedListener(this)
                 response: Response<CartResponse>
             ) {
 
-                val res=response
+                val res = response
                 if (response.isSuccessful) {
 
                     val retro: String = response.body()!!.count.toString()
 
-                    if(retro.contains("0")){
+                    if (retro.contains("0")) {
 
                         counterView.setVisibility(View.GONE);
 
-                    }else{
+                    } else {
                         counterView.setVisibility(View.VISIBLE)
                         counterView.setText(retro)
 
@@ -370,7 +392,7 @@ navigationView!!.setNavigationItemSelectedListener(this)
                 handler.post(Update)
 
             }
-        }, 1000, 2000)
+        }, 4000, 5000)
 
         // Pager listener over indicator
         indicator.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -379,11 +401,14 @@ navigationView!!.setNavigationItemSelectedListener(this)
                 if (position == 3 && !isLastPageSwiped) {
                     if (counterPageScroll != 0) {
                         isLastPageSwiped = true;
-                        //Next Activity here
+
                     }
-                    counterPageScroll++;
-                } else {
-                    counterPageScroll = 0;
+                    if (position==3)
+                    {
+                        mPager!!.setCurrentItem(position)
+                        counterPageScroll+1
+                    }
+                    mPager!!.setCurrentItem(position)
                 }
             }
 
@@ -391,7 +416,18 @@ navigationView!!.setNavigationItemSelectedListener(this)
 
             }
 
-            override fun onPageScrollStateChanged(pos: Int) {}
+            override fun onPageScrollStateChanged(pos: Int) {
+                val currentPage: Int = mPager!!.getCurrentItem() //ViewPager Type
+
+
+                if (currentPage == 3 || currentPage == 0) {
+                    previousState = currentState
+                    currentState = pos
+                    if (previousState === 1 && currentState === 0) {
+                        mPager!!.setCurrentItem(if (currentPage == 0) 3 else 0)
+                    }
+                }
+            }
         })
     }
 
@@ -416,16 +452,14 @@ navigationView!!.setNavigationItemSelectedListener(this)
         }
     }
 
-    companion object {
-        var pager: ViewPager? = null
-    }
+
 
     override fun onStart() {
         super.onStart()
 
         if(!(SharedPrefManager.getInstance(this).isLoggedIn)){
             val intent = Intent(applicationContext, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
 
             startActivity(intent)
         }
@@ -446,15 +480,15 @@ navigationView!!.setNavigationItemSelectedListener(this)
 
             }
             R.id.Sofas -> {
-                val i = Intent(applicationContext, Sofa_Home::class.java)
+                val i = Intent(applicationContext, Sofa::class.java)
                 startActivity(i)
             }
             R.id.Chairs -> {
-                val i = Intent(applicationContext, Chairs_Home::class.java)
+                val i = Intent(applicationContext, Chairs::class.java)
                 startActivity(i)
             }
             R.id.CupBoard -> {
-                val i = Intent(applicationContext, Cupboards_Home::class.java)
+                val i = Intent(applicationContext, Cupboards::class.java)
                 startActivity(i)
             }
             R.id.myaccount -> {
@@ -464,6 +498,15 @@ navigationView!!.setNavigationItemSelectedListener(this)
             }
             R.id.storelocator ->
                 Toast.makeText(this, "Store Locator", Toast.LENGTH_SHORT).show()
+          /*  R.id.favourites -> {
+                val i = Intent(applicationContext, FavouriteActivity::class.java)
+                startActivity(i)            }
+
+           */
+            R.id.favouriteproduct -> {
+                val i = Intent(applicationContext, Favouriteprod::class.java)
+                startActivity(i)
+            }
             R.id.myorders -> {
                 val i = Intent(applicationContext, OrderListActivity::class.java)
                 startActivity(i)
@@ -480,11 +523,42 @@ navigationView!!.setNavigationItemSelectedListener(this)
 
         application.database.AddressDao().delete()
         SharedPrefManager.getInstance(application).clear()
+
+
+        Productdetails.favoriteDatabase?.favoriteDao()?.delete()/////////
+
+
+
         val intent = Intent(applicationContext, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
         startActivity(intent)
+        finish()
 
     }
+  /*  private fun buildDatabase(appContext: Context, userId: Int): FavProdDB? {
+        return Room.databaseBuilder<FavProdDB>(appContext,
+            FavProdDB::class.java,
+            DATABASE_NAME.toString() + "_" + userId)
+            .addCallback(object : Callback<Any?> {
+              fun onCreate(@NonNull db: SupportSQLiteDatabase?) {
+                   // super.onCreate(db)
+                  super.on
+                }
+            })
+            .build()
+    }
 
+   */
+
+    private fun buildDatabase(appcontext: Context, userId: String): FavProdDB {
+        return Room.databaseBuilder(appcontext, FavProdDB::class.java, "muhhg" + "_" + userId)
+            .addCallback(object : RoomDatabase.Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                }
+            })
+            .build()
+
+    }
 }

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Zhuinden:command-queue:1.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d02bcde0e97ea754466257c31a9ac48/jetified-command-queue-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d02bcde0e97ea754466257c31a9ac48/jetified-command-queue-1.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d02bcde0e97ea754466257c31a9ac48/jetified-command-queue-1.1.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Zhuinden/command-queue/1.1.0/30bb298e9bf92e371a4d344df7bfb2cecf24f57d/command-queue-1.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Zhuinden/command-queue/1.1.0/4004cb83d00bd1d7575fc6f1b8fb9b10b0a0ecd1/command-queue-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

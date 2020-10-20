@@ -111,7 +111,9 @@ android:id="@+id/hello"
         android:spinnerMode="dropdown"
         />
         </RelativeLayout>
+
     </RelativeLayout>
+
 
 
 </com.daimajia.swipe.SwipeLayout>

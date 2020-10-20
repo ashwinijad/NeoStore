@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Zhuinden:live-event:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b2eace7c73be2c2aba8ce98e08a8a0d0/jetified-live-event-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b2eace7c73be2c2aba8ce98e08a8a0d0/jetified-live-event-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b2eace7c73be2c2aba8ce98e08a8a0d0/jetified-live-event-1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Zhuinden/live-event/1.0.0/1515f797025d601b7b6dabcb9137c245bf246c15/live-event-1.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Zhuinden/live-event/1.0.0/4fbff2e3e960ccedf326dab56226820bf2c2b278/live-event-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

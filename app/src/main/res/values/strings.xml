@@ -9,4 +9,7 @@
     <string name="MyOrder">My Orders</string>
     <string name="cart_is_empty">Cart Is empty</string>
     <string name="Cupboards">Cupboards</string>
+    <string name="address">Add Address</string>
+    <string name="addresslist">Address List</string>
+    <string name="MyFavourites">MyFavourites</string>
 </resources>

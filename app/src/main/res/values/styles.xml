@@ -12,6 +12,7 @@
         <item name="android:windowNoTitle">true</item>
 
     </style>
+
     <style name="AppTheme1" parent="Theme.AppCompat.Light.DarkActionBar">
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -25,5 +26,10 @@
     </style>
     <style name="SearchViewStyle" parent="AppTheme">
         <item name="android:editTextColor">@color/white</item>
+    </style>
+    <style name="foodRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingstars</item>
+        <item name="android:minWidth">20px</item>
+        <item name="android:maxHeight">181px</item>
     </style>
 </resources>

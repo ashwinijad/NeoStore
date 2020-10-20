@@ -149,7 +149,7 @@ android:layout_marginTop="60px"
         android:hint="Phone no"
         android:textColorHint="#FFFFFF"
         android:drawablePadding="10dp"
-        android:inputType="textPassword"
+        android:inputType="phone"
         android:drawableLeft="@drawable/ic_phone_android_black_24dp"
        />
     <Button

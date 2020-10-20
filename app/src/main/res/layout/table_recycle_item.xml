@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="100dp"
-        android:layout_height="130dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="220px"
+        android:layout_height="200px"
+        tools:ignore="MissingConstraints"
+        android:layout_gravity="center"/>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -37,60 +38,96 @@ android:paddingLeft="20dp"
             android:layout_width="wrap_content"
 
             android:paddingLeft="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="24px"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="30px"
             tools:ignore="MissingConstraints" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_marginTop="50px">
             <TextView
                 android:id="@+id/title4"
+
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:text="Rs."
-                android:paddingLeft="30dp"
-                android:layout_marginTop="10dp"
+                android:paddingLeft="20dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="60px"
                 tools:ignore="MissingConstraints" />
             <TextView
+
                 android:id="@+id/title2"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="60px"
+
                 tools:ignore="MissingConstraints" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+              >
+            <RatingBar
+                android:numStars="5"
+                android:id="@+id/ratingbar"
+                android:layout_width="wrap_content"
+                android:transformPivotX="50dp"
+                android:layout_marginRight="-100dp"
+                android:clickable="false"
+                android:isIndicator="true"
+                android:layout_height="45dp"
+                android:focusableInTouchMode="false"
+                android:defaultFocusHighlightEnabled="false"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:focusable="false"
+                android:progressBackgroundTint="#7F7F7F"
+                android:progressTint="#FFBA00"
+                android:stepSize="0.5"
+                />
+            </LinearLayout>
+
+          <!--  <ImageView
+                android:layout_marginTop="50dp"
+                android:layout_below="@+id/tv_name"
+                android:layout_toRightOf="@+id/img_pr"
+                android:layout_marginLeft="100dp"
+                android:id="@+id/fav_btn"
+                android:src="@drawable/favourite_null"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+                <RatingBar
+                android:numStars="5"
+                android:id="@+id/ratingbar"
+
+                android:layout_width="wrap_content"
+
+                android:clickable="false"
+                android:isIndicator="true"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="false"
+                android:defaultFocusHighlightEnabled="false"
+                style="@style/foodRatingBar"
+
+                android:focusable="false"
+
+                android:stepSize="0.5"
+                />
+                -->
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <RatingBar
-            android:numStars="5"
-            android:id="@+id/ratingbar"
-            android:layout_width="wrap_content"
-            android:clickable="false"
-            android:isIndicator="true"
-            android:layout_height="45dp"
-            android:focusableInTouchMode="false"
-android:defaultFocusHighlightEnabled="false"
-            android:focusable="false"
-            android:progressBackgroundTint="#7F7F7F"
-            android:progressTint="#FFBA00"
-            android:stepSize="0.5"
-          />
-
-    </LinearLayout>
 </LinearLayout>
 </LinearLayout>

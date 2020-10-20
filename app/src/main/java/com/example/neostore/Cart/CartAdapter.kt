@@ -16,7 +16,7 @@ import com.daimajia.swipe.SwipeLayout
 import com.daimajia.swipe.SwipeLayout.SwipeListener
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter
 import com.example.neostore.R
-import com.example.neostore.RetrofitClient
+import com.example.neostore.ClientApi.RetrofitClient
 import com.example.neostore.SharedPrefManager
 import org.json.JSONObject
 import retrofit2.Call
@@ -154,7 +154,7 @@ val id =dataList?.get(position)?.product?.id
                     SharedPrefManager.getInstance(
                         context
                     ).user.access_token.toString()
-                RetrofitClient.instancecart.editCart(token, id, country[position1])
+                RetrofitClient.instance.editCart(token, id, country[position1])
                     .enqueue(object : Callback<DeleteResponse> {
                         override fun onFailure(call: Call<DeleteResponse>, t: Throwable) {
                             Log.d("res", "" + t)
@@ -207,7 +207,7 @@ val id =dataList?.get(position)?.product?.id
             progressDialog.show()
 
             val token: String = SharedPrefManager.getInstance(context).user.access_token.toString()
-            RetrofitClient.instancecart.deletecart(token, id!!)
+            RetrofitClient.instance.deletecart(token, id!!)
                 .enqueue(object : Callback<DeleteResponse> {
                     override fun onFailure(call: Call<DeleteResponse>, t: Throwable) {
 
@@ -222,6 +222,7 @@ val id =dataList?.get(position)?.product?.id
                     ) {
                         var res = response
                         progressDialog.dismiss()
+                        (context as Activity).finish()
 
                         if (res.body()?.status == 200) {
                             Toast.makeText(
@@ -230,13 +231,13 @@ val id =dataList?.get(position)?.product?.id
                                 Toast.LENGTH_LONG
                             ).show()
                             progress()
+
                             mItemManger.removeShownLayouts(holder.swipelayout)
                             notifyItemChanged(position)
                             notifyItemRemoved(position)
                             dataList?.removeAt(position)
                             notifyItemRangeChanged(position, dataList?.size!!)
                             mItemManger.closeAllItems()
-                            progressDialog.show()
 
                             //Toast.makeText( view.context, "Deleted " + holder.productname.getText().toString(), Toast.LENGTH_SHORT ).show()
 
@@ -273,7 +274,9 @@ val id =dataList?.get(position)?.product?.id
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
         context.applicationContext.startActivity(intent)
-      //  (context as Activity).finish()
+        (context as Activity?)!!.overridePendingTransition(0, 0)
+
+        //  (context as Activity).finish()
 
 
     }
